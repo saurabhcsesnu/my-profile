@@ -1,563 +1,81 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Saurabh | Computer Science Professor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .profile-image {
-            border-radius: 50%;
-            border: 5px solid #3b82f6;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            bottom: -8px;
-            left: 0;
-            background-color: #3b82f6;
-            border-radius: 2px;
-        }
-        .publication-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .publication-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        .active:after {
-            width: 100%;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans">
-    <!-- Header/Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-blue-600">Dr. Saurabh Janardan Shigwan</div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 active">Home</a>
-                    <a href="#research" class="nav-link text-gray-700 hover:text-blue-600">Research</a>
-                    <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600">Publications</a>
-                    <a href="#teaching" class="nav-link text-gray-700 hover:text-blue-600">Teaching</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
-                </nav>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#research" class="block py-2 text-gray-700 hover:text-blue-600">Research</a>
-                <a href="#publications" class="block py-2 text-gray-700 hover:text-blue-600">Publications</a>
-                <a href="#teaching" class="block py-2 text-gray-700 hover:text-blue-600">Teaching</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
-            </div>
-        </div>
-    </header>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <!-- Hero Section -->
-    <section id="home" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
-                    <img src="https://via.placeholder.com/300" alt="Profile Image" class="profile-image w-64 h-64 object-cover">
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Dr. Saurabh Shigwan</h1>
-                    <h2 class="text-2xl md:text-3xl text-blue-600 mb-6">Assistant Professor of Computer Science</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Welcome to my academic webpage. I am an Assistant Professor in the Department of Computer Science at Shiv Nadar Institute of Eminence Deemed to be University. My research interests include [brief research areas]. I teach courses in [list key courses].
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                            Contact Me
-                        </a>
-                        <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <title>Saurabh Shigwan</title>
 
-    <!-- Research Section -->
-    <section id="research" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Research Interests</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-brain text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Artificial Intelligence</h3>
-                    <p class="text-gray-600">
-                        Research in machine learning, deep learning, and their applications to [specific domain]. Current projects include [brief description].
-                    </p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-shield-alt text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Cybersecurity</h3>
-                    <p class="text-gray-600">
-                        Investigating novel approaches to [specific security problem]. Recent work focuses on [brief description of focus area].
-                    </p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-network-wired text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Networking</h3>
-                    <p class="text-gray-600">
-                        Research in [specific networking area] with applications to [specific application]. Current collaborations include [brief mention].
-                    </p>
-                </div>
-            </div>
+    <meta name="author" content="Saurabh Shigwan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
-            <div class="mt-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Projects</h3>
-                <div class="space-y-6">
-                    <div class="border-l-4 border-blue-600 pl-6 py-2">
-                        <h4 class="text-xl font-medium text-gray-800">Project Title 1</h4>
-                        <p class="text-gray-600 mt-2">Brief description of the project, funding source (if any), and your role. Mention any collaborators if relevant.</p>
-                    </div>
-                    <div class="border-l-4 border-blue-600 pl-6 py-2">
-                        <h4 class="text-xl font-medium text-gray-800">Project Title 2</h4>
-                        <p class="text-gray-600 mt-2">Brief description of the project, funding source (if any), and your role. Mention any collaborators if relevant.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  </head>
 
-    <!-- Publications Section -->
-    <section id="publications" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Publications</h2>
-
-            <div class="mt-8">
-                <div class="flex space-x-4 mb-6">
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium" id="all-pubs">All</button>
-                    <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="journal-pubs">Journal Articles</button>
-                    <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="conference-pubs">Conference Papers</button>
-                    <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="book-chapters">Book Chapters</button>
-                </div>
-
-                <div class="space-y-6" id="publications-list">
-                    <!-- Journal Articles -->
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm journal">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">Title of Journal Article</h3>
-                                <p class="text-gray-600 mt-1">Authors, Journal Name, Volume(Issue), Pages, Year</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 flex space-x-3">
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link"></i> DOI</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Conference Papers -->
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">Title of Conference Paper</h3>
-                                <p class="text-gray-600 mt-1">Authors, Conference Name, Location, Pages, Year</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 flex space-x-3">
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link"></i> DOI</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Book Chapters -->
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm book-chapter">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">Title of Book Chapter</h3>
-                                <p class="text-gray-600 mt-1">Authors, Book Title, Publisher, Pages, Year</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 flex space-x-3">
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link"></i> DOI</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Add more publications as needed -->
-                </div>
-
-                <div class="mt-8 text-center">
-                    <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                        View All Publications
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Teaching Section -->
-    <section id="teaching" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Teaching</h2>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Courses</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h4 class="text-xl font-medium text-gray-800">CS 101: Introduction to Programming</h4>
-                        <p class="text-gray-600 mt-2">Undergraduate course covering fundamental programming concepts using [language].</p>
-                        <div class="mt-4">
-                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link mr-2"></i>Course Website</a>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h4 class="text-xl font-medium text-gray-800">CS 501: Advanced Topics in [Specialization]</h4>
-                        <p class="text-gray-600 mt-2">Graduate seminar covering current research in [specific area].</p>
-                        <div class="mt-4">
-                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link mr-2"></i>Course Website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Past Courses</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CS 201: Data Structures</h4>
-                        <p class="text-gray-600 text-sm mt-1">Spring 2023, Fall 2022</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CS 301: Algorithms</h4>
-                        <p class="text-gray-600 text-sm mt-1">Fall 2023, Spring 2022</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CS 401: Computer Security</h4>
-                        <p class="text-gray-600 text-sm mt-1">Spring 2021</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Student Advising</h3>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 class="text-xl font-medium text-gray-800">Current PhD Students</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700">Student Name (Expected graduation: Year) - Thesis topic</li>
-                        <li class="text-gray-700">Student Name (Expected graduation: Year) - Thesis topic</li>
-                    </ul>
-
-                    <h4 class="text-xl font-medium text-gray-800 mt-6">Current MS Students</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700">Student Name (Expected graduation: Year) - Thesis topic</li>
-                    </ul>
-
-                    <h4 class="text-xl font-medium text-gray-800 mt-6">Undergraduate Research Assistants</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700">Student Name (Year) - Project description</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Contact</h2>
-
-            <div class="mt-8 grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get In Touch</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-university text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Office Address</h4>
-                                <p class="text-gray-600 mt-1">
-                                    Department of Computer Science<br>
-                                    [Your University Name]<br>
-                                    [Building Name], Room [Number]<br>
-                                    [Street Address]<br>
-                                    [City, State ZIP Code]
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-envelope text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Email</h4>
-                                <p class="text-gray-600 mt-1">
-                                    <a href="mailto:your.email@university.edu" class="hover:text-blue-600">your.email@university.edu</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-phone-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Phone</h4>
-                                <p class="text-gray-600 mt-1">
-                                    <a href="tel:+1-XXX-XXX-XXXX" class="hover:text-blue-600">+1 (XXX) XXX-XXXX</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-clock text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Office Hours</h4>
-                                <p class="text-gray-600 mt-1">
-                                    Monday: 2:00 PM - 4:00 PM<br>
-                                    Wednesday: 10:00 AM - 12:00 PM<br>
-                                    Or by appointment
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8">
-                        <h4 class="text-lg font-medium text-gray-800 mb-4">Connect With Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300">
-                                <i class="fab fa-google-scholar"></i>
-                            </a>
-                            <a href="#" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition duration-300">
-                                <i class="fab fa-researchgate"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send a Message</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Dr. [Your Name]</h3>
-                    <p class="text-gray-400">
-                        Assistant Professor<br>
-                        Department of Computer Science<br>
-                        [Your University Name]
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#research" class="text-gray-400 hover:text-white transition duration-300">Research</a></li>
-                        <li><a href="#publications" class="text-gray-400 hover:text-white transition duration-300">Publications</a></li>
-                        <li><a href="#teaching" class="text-gray-400 hover:text-white transition duration-300">Teaching</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">University Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Department Website</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">University Homepage</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Faculty Directory</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Academic Calendar</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Research Profiles</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Google Scholar</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">ResearchGate</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">ORCID</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">DBLP</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; <span id="year"></span> Dr. [Your Name]. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Publication filtering
-        document.getElementById('all-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                card.classList.remove('hidden');
-            });
-            updateActiveButton(this);
-        });
-
-        document.getElementById('journal-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('journal')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
-        });
-
-        document.getElementById('conference-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('conference')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
-        });
-
-        document.getElementById('book-chapters').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('book-chapter')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
-        });
-
-        function updateActiveButton(activeButton) {
-            document.querySelectorAll('#publications button').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
-            });
-            activeButton.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100');
-            activeButton.classList.add('bg-blue-600', 'text-white');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Update active nav link based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  <h1>Saurabh Shigwan</h1>
+                </p>
+                <p>I'm a Assistant Professor at <a href="https://snu.edu.in/departments/department-of-computer-science-and-engineering/">Computer Science department</a> in Shiv Nadar Institute of Eminence Deemed to be University, Delhi-NCR, where I mostly works on Medical Image Computing.
+                </p>
+                <p>
+                  At SNU, I am working on DTI reconstruction from sparse Diffusion MRI, Deep learning based CT reconstruction from Sparse sinograms, Unsupervisd segmentation of medical images using GNNs.
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:saurabh.shigwan@snu.edu.in" target="_blank" rel="noopener noreferrer">Email</a> &nbsp;/&nbsp;
+                  <a href="resume.pdf" target="_blank" rel="noopener noreferrer">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/saurabhshigwan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> &nbsp;/&nbsp;
+                  <a href="https://www.researchgate.net/profile/Saurabh-Shigwan" target="_blank" rel="noopener noreferrer">ResearchGate</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/saurabhcsesnu" target="_blank" rel="noopener noreferrer">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="Dr_Saurabh_Shigwan_picture.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="Dr_Saurabh_Shigwan_picture.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Research</h2>
+                <p>
+                  I'm interested in Medical Image analysis, deep learning, generative AI, and image processing.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>News</h2>
+                <p>
+                  Our <a href="https://doi.org/10.48550/arXiv.2411.01966" target="_blank" rel="noopener noreferrer">research paper</a> got accepted at <a href="https://biomedicalimaging.org/2025/" target="_blank" rel="noopener noreferrer">ISBI-2025</a>.
+                </p>
+                <p>
+                  Our <a href="https://arxiv.org/abs/2410.06114" target="_blank" rel="noopener noreferrer">research paper</a> got accepted at <a href="https://bmvc2024.org/programme/accepted_papers/" target="_blank" rel="noopener noreferrer">BMCV-2024</a>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Current webpage is designed using this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
