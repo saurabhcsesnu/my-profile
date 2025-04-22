@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Saurabh J. Shigwan | Assistant Professor of Computer Science</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    header { background: #004080; color: white; padding: 1rem 2rem; position: sticky; top: 0; }
+    nav ul { list-style: none; display: flex; gap: 1rem; }
+    nav a { color: white; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .container { max-width: 960px; margin: auto; padding: 2rem; }
+    section { padding: 3rem 0; border-bottom: 1px solid #eee; }
+    h1, h2, h3 { color: #004080; }
+    .btn { display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background: #004080; color: white; text-decoration: none; border-radius: 4px; }
+    .students-list, .publications-list, .courses-list, .research-list { list-style: none; padding-left: 1rem; }
+    .students-list li, .publications-list li, .courses-list li, .research-list li { margin-bottom: 0.5rem; }
+    footer { text-align: center; padding: 1rem 0; font-size: 0.9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Home Section -->
+    <section id="home">
+      <h1>Dr. Saurabh J. Shigwan</h1>
+      <h2>Assistant Professor, Department of Computer Science and Engineering</h2>
+      <h3>Shiv Nadar Institute of Eminence, Delhi-NCR</h3>
+      <p>Welcome to my academic webpage. My current research focuses on sparse Diffusion MRI reconstruction and tractography, deep learning–based CT reconstruction from sparse sinograms, and unsupervised segmentation of medical images using graph neural networks. I teach Digital Image Processing, Deep Learning for Visual Computing, and have previously taught Discrete Mathematics and Data Structures.</p>
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="resume.pdf" class="btn" target="_blank">Download CV</a>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+      <h2>Research Interests & Ongoing Projects</h2>
+      <ul class="research-list">
+        <li><strong>Sparse Diffusion MRI Reconstruction and Tractography</strong><br>
+          Students: Abhishek Tiwari, Ananya Singhal (Sept ’22 – Present)<br>
+          Collaborator: Dr. Rajeev Kumar (SNU)<br>
+          Using transformer-based deep networks to reconstruct diffusion tensors and perform tractography from undersampled DWI data.</li>
+        <li><strong>Unsupervised Image Segmentation using Graph Neural Networks</strong><br>
+          Students: Kovvuri Sai Gopal Reddy, Bodduluri Saran, Mudit Adityaja (Sept ’23 – Present)<br>
+          Collaborators: Dr. Nitin Kumar, Dr. Snehasis Mukharjee (SNU)<br>
+          Developed an SOTA GNN model with modularity loss for segmentation on medical and vision datasets.</li>
+        <li><strong>Deep Learning–Based CT Reconstruction</strong><br>
+          Student: Ishaan Bharatiya (May ’24 – Present)<br>
+          Collaborators: Prof. Yogesh Rathi (HMS), Dr. Rajeev Kumar (SNU)<br>
+          Exploring DNN approaches to enhance CT images from sparse sinograms.</li>
+        <li><strong>Analysis of Spine Bone for Fractures</strong><br>
+          Student: Chekuri Arahanth Varma (Sept ’23 – Present)<br>
+          Implementing geometry-aware neural networks for sparse cone-beam reconstructions.</li>
+      </ul>
+      <h3>Interests:</h3>
+      <p>Statistical Modeling, Bayesian Analysis, Medical Image Processing, Machine Learning, Computer Vision, Deep Learning, Graph Neural Networks, Shape Analysis.</p>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <ul class="publications-list">
+        <li>Adityaja, M., Shigwan, S.J., Kumar, N., “UnSegMedGAT: Unsupervised Medical Image Segmentation using Graph Attention Networks,” <em>ISBI</em>, 2025. <a href="#">PDF</a></li>
+        <li>Reddy, K.S.G., Saran, B., Adityaja, M., Shigwan, S.J., Mukharjee, S., “UnSeGArmaNet: ...,” <em>BMVC</em>, 2024. <a href="#">PDF</a></li>
+        <li>Tiwari, A., Singh, A., Shigwan, S.J., Kumar, R.K., “SwinDTI: Transformer-based DTI from Sparse Data,” <em>Neural Computing and Applications</em>, Springer, 2023. <a href="#">DOI</a></li>
+        <li>Tiwari, A., Singhal, A., Shigwan, S.J., Kumar, R.K., “Early Diagnosis of Alzheimer ...,” <em>ACML</em>, 2023. <a href="#">PDF</a></li>
+        <li>Tiwari, A., Singhal, A., Shigwan, S.J., Kumar, R.K., “Deep Learning for FTD Diagnosis,” <em>ICCV BioImage</em>, 2023. <a href="#">PDF</a></li>
+        <li>Shigwan, S.J., Awate, S.P., “Object Segmentation With Deep Neural Nets ...,” <em>ISBI</em>, 2020.</li>
+      </ul>
+      <a href="#" class="btn">View All Publications</a>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching">
+      <h2>Teaching & Advising</h2>
+      <h3>Current Courses</h3>
+      <ul class="courses-list">
+        <li>Digital Image Processing (Undergraduate)</li>
+        <li>Deep Learning for Visual Computing (Graduate)</li>
+      </ul>
+      <h3>Past Courses</h3>
+      <ul class="courses-list">
+        <li>Discrete Mathematics</li>
+        <li>Data Structures</li>
+      </ul>
+
+      <h3>Student Advising</h3>
+      <h4>PhD Students</h4>
+      <ul class="students-list">
+        <li>Abhishek Tiwari (Sept ’22 – Present): SwinDTI project</li>
+        <li>Ananya Singhal (Sept ’22 – Present): Alzheimer diagnosis framework</li>
+        <li>Kovvuri Sai Gopal Reddy (Sept ’23 – Present)</li>
+        <li>Bodduluri Saran (Sept ’23 – Present)</li>
+        <li>Mudit Adityaja (Sept ’23 – Present)</li>
+        <li>Ishaan Bharatiya (May ’24 – Present)</li>
+        <li>Chekuri Arahanth Varma (Sept ’23 – Present)</li>
+      </ul>
+      <h4>MS Students</h4>
+      <ul class="students-list">
+        <li>—</li>
+      </ul>
+      <h4>Undergraduate Research Assistants</h4>
+      <ul class="students-list">
+        <li>—</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Office:</strong> C219L, C-Block, Shiv Nadar IOE, GB Nagar, UP, India-201314</p>
+      <p><strong>Email:</strong> <a href="mailto:saurabh.shigwan@snu.edu.in">saurabh.shigwan@snu.edu.in</a></p>
+      <p><strong>Office Hours:</strong> By appointment</p>
+      <h3>Connect with me</h3>
+      <ul>
+        <li><a href="https://scholar.google.com">Google Scholar</a></li>
+        <li><a href="https://www.researchgate.net">ResearchGate</a></li>
+        <li><a href="https://orcid.org">ORCID</a></li>
+        <li><a href="https://dblp.org">DBLP</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Dr. Saurabh J. Shigwan. All rights reserved.
+  </footer>
+</body>
+</html>
