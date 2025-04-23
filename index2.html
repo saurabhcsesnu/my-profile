@@ -363,6 +363,30 @@
                     </div>   -->
 
                     <!-- Add more publications as needed -->
+                    <div id="more-publications" class="space-y-6 hidden">
+                      <!-- Dummy Publication -->
+                      <div class="publication-card bg-white p-6 rounded-lg shadow-sm journal">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                          <div>
+                            <h3 class="text-xl font-semibold text-gray-800">
+                              Dummy Publication: A Placeholder Example for “View All”
+                            </h3>
+                            <p class="text-gray-600 mt-1">
+                              John Doe, Jane Smith, Journal of Placeholder Studies, 2025
+                            </p>
+                          </div>
+                          <div class="mt-4 md:mt-0 flex space-x-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                              <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800">
+                              <i class="fas fa-link"></i> DOI
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  -->
                 </div>
 
                 <div class="mt-8 text-center">
@@ -370,8 +394,16 @@
                         View All Publications
                     </a>
                 </div>
+
             </div>
         </div>
+        <script>
+            document.getElementById('view-all-btn').addEventListener('click', function(e) {
+              e.preventDefault();
+              document.getElementById('more-publications').classList.remove('hidden');
+              this.classList.add('hidden');
+            });
+          </script>        
     </section>
 
     <!-- Teaching Section -->
