@@ -122,18 +122,27 @@
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">Sparse Diffusion MRI reconstruction and Tractography</h3>
                     <p class="text-gray-600">
-                      This research focuses on reconstructing high-quality brain connectivity information from sparsely sampled
-                      diffusion-weighted imaging (DWI) data using deep learning techniques. Traditional diffusion MRI methods
-                      require dense sampling, which is time-consuming and limits clinical scalability. Our work leverages
-                      transformer-based and neural network models to estimate diffusion tensors and perform accurate fiber tractography
-                      even with limited input data. This approach enhances the efficiency of brain imaging pipelines and has shown
-                      promise in early diagnosis of neurodegenerative conditions such as Alzheimer’s and Frontotemporal Dementia.
-                    </p>
-                    <p class="text-gray-600">
-                    The tractography pipeline further explores data-driven learning of fiber directions from sparse diffusion signals,
-                    replacing traditional model-based filters like the unscented Kalman filter with modern deep neural networks.
-                    This work is developed in collaboration with experts from Shiv Nadar IoE and Harvard Medical School.
-                    </p>
+                      This research focuses on reconstructing high-quality brain connectivity from sparsely sampled diffusion-weighted imaging (DWI) data using deep learning techniques. Traditional dMRI acquisition requires dense sampling across multiple diffusion directions, making it time-consuming and less feasible in clinical settings. Our work significantly reduces scan time while preserving accuracy, enhancing the efficiency and scalability of brain imaging pipelines.
+
+                      We developed SwinDTI, a transformer-based neural network that estimates diffusion tensors and enables reliable fiber tractography from limited DWI inputs. Unlike conventional model-based methods (e.g., Unscented Kalman Filters), our pipeline uses data-driven neural models to infer fiber directions, allowing for end-to-end learning and better generalization across subjects and scanning conditions.
+
+                      Key highlights:
+
+                      Enables fast and accurate tractography from sparse DWI, reducing burden on both scanners and patients.
+
+                      Supports early diagnosis of neurodegenerative diseases such as Alzheimer’s and Frontotemporal Dementia.
+
+                      Integrates deep neural networks to replace hand-crafted models for fiber orientation estimation.
+
+                      Developed in collaboration with Shiv Nadar IoE and Harvard Medical School researchers.
+
+                      Collaborator:
+
+                      Dr. Rajeev Kumar (Shiv Nadar IoE)
+
+                      Students:
+
+                      Abhishek Tiwari, Ananya Singhal
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
                     <div class="text-blue-600 mb-4">
