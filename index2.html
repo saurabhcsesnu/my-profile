@@ -389,21 +389,39 @@
                     <!--  -->
                 </div>
 
-                <div class="mt-8 text-center">
+                <!-- <div class="mt-8 text-center">
                     <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
                         View All Publications
+                    </a>
+                </div> -->
+                <div class="mt-8 text-center">
+                    <a href="#" id="view-all-btn" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                      View All Publications
                     </a>
                 </div>
 
             </div>
         </div>
-        <script>
+        <!-- <script>
             document.getElementById('view-all-btn').addEventListener('click', function(e) {
               e.preventDefault();
               document.getElementById('more-publications').classList.remove('hidden');
               this.classList.add('hidden');
             });
-          </script>        
+          </script>         -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var btn = document.getElementById('view-all-btn');
+              var more = document.getElementById('more-publications');
+              if (btn && more) {
+                btn.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  more.classList.remove('hidden');
+                  btn.classList.add('hidden');
+                });
+              }
+            });
+          </script>          
     </section>
 
     <!-- Teaching Section -->
