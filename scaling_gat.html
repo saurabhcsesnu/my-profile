@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide to Scaling GATs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;70axl&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tech Neutral (Off-white, Charcoal, Muted Blue/Teal) -->
+    <!-- Application Structure Plan: The SPA uses a tab-based navigation to separate the three main solution categories: Sampling, Architectural Changes, and Alternative Frameworks. This task-oriented design allows users to directly access the information they need. It replaces a linear document flow with a non-linear, exploratory experience. Key interactive elements include a dynamic bar chart for comparing strategies and a visual diagram explaining sampling. This structure was chosen to make dense, technical information more digestible and engaging by breaking it into logical, user-controlled sections and using visuals to clarify complex concepts. -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Main solution categories. Goal: Organize/Navigate. Viz: Tab buttons. Interaction: Click to switch views. Justification: Core navigation for non-linear exploration. Library: HTML/CSS/JS.
+        - Report Info: Comparison of strategies (Cost, Accuracy, Ease). Goal: Compare. Viz: Bar chart. Interaction: Buttons switch the metric displayed, updating the chart. Justification: A dynamic chart is more engaging and easier to interpret than a static table. Library: Chart.js (Canvas).
+        - Report Info: Process of Neighbor Sampling. Goal: Explain a process. Viz: HTML/CSS diagram. Interaction: Hover effects to highlight the sampling path. Justification: Visually demonstrates the core concept of computational reduction more effectively than text alone. Library: HTML/CSS/JS.
+        - Report Info: Details of each technique. Goal: Inform. Viz: Styled content cards. Interaction: None. Justification: Clean, organized presentation of detailed information. Library: HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #0891b2; /* Cyan-600 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        .diagram-node {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: absolute;
+            z-index: 10;
+        }
+        .diagram-line {
+            position: absolute;
+            background-color: #cbd5e1; /* Slate-300 */
+            height: 2px;
+            transform-origin: left center;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .node-center {
+            background-color: #fb923c; /* Orange-400 */
+            color: white;
+        }
+        .node-neighbor {
+            background-color: #94a3b8; /* Slate-400 */
+            color: white;
+        }
+        .diagram-container:hover .node-neighbor.highlight {
+            background-color: #0ea5e9; /* Sky-500 */
+            transform: scale(1.1);
+        }
+        .diagram-container:hover .diagram-line.highlight {
+            background-color: #0ea5e9; /* Sky-500 */
+            height: 3px;
+        }
+        .resource-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-cyan-800 mb-2">Scaling Graph Attention Networks</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">An interactive guide to overcoming the quadratic complexity and memory challenges of GATs on large graphs.</p>
+        </header>
+
+        <nav class="mb-12 flex flex-wrap justify-center gap-2 md:gap-4">
+            <button data-tab="sampling" class="nav-button font-medium py-2 px-4 rounded-full bg-white shadow-sm border border-gray-200">Sampling Methods</button>
+            <button data-tab="architecture" class="nav-button font-medium py-2 px-4 rounded-full bg-white shadow-sm border border-gray-200">Architectural Changes</button>
+            <button data-tab="alternatives" class="nav-button font-medium py-2 px-4 rounded-full bg-white shadow-sm border border-gray-200">Alternative Frameworks</button>
+        </nav>
+
+        <main>
+            <section id="sampling" class="content-section space-y-12">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h2 class="text-2xl font-bold text-cyan-700 mb-4">Introduction to Sampling Methods</h2>
+                    <p class="text-gray-700">Instead of performing computations on the entire graph, sampling techniques train your GAT model on smaller, manageable subgraphs. This is a highly effective strategy for breaking the dependency on the full graph's size during training, drastically reducing computational load and memory requirements. Explore the two primary approaches below.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">1. Neighbor Sampling</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-700">How It Works</h4>
+                                <p class="text-gray-600">For each node in a mini-batch, this method samples a fixed number of its neighbors. This process is repeated for each GNN layer, creating a small computational graph of a predefined size, independent of the overall graph size. Attention is only computed within this sampled subgraph.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">Key Advantages</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Drastically reduces computation and memory.</li>
+                                    <li>Model-agnostic: works with GAT, GCN, etc.</li>
+                                    <li>Enables training on massive graphs that don't fit in memory.</li>
+                                </ul>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold text-gray-700">Popular Implementations</h4>
+                                <p class="text-gray-600">Pioneered by <span class="font-medium text-cyan-600">GraphSAGE</span>. Easily implemented using built-in data loaders in PyTorch Geometric and DGL.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">2. Graph Clustering</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-700">How It Works</h4>
+                                <p class="text-gray-600">This approach first partitions the large graph into many smaller, dense subgraphs (clusters) using an algorithm like METIS. The GNN is then trained on mini-batches of these pre-computed clusters, with message passing confined within each cluster.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">Key Advantages</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Highly efficient for very large graphs via preprocessing.</li>
+                                    <li>Can improve performance by training on dense subgraphs.</li>
+                                    <li>Simplifies the sampling process during training.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">Popular Implementations</h4>
+                                <p class="text-gray-600">The most well-known method is <span class="font-medium text-cyan-600">Cluster-GCN</span>, with implementations available in major GNN libraries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h2 class="text-2xl font-bold text-cyan-700 mb-4 text-center">Visualizing the Impact of Sampling</h2>
+                    <p class="text-gray-700 mb-6 text-center max-w-2xl mx-auto">This diagram illustrates how neighbor sampling reduces complexity. In a full batch, the central node attends to all its neighbors. With sampling, it only considers a small subset, dramatically cutting down the calculations needed. Hover over the nodes in the sampling diagram to see the connections.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center">
+                            <h3 class="font-semibold text-xl mb-4">Full-Batch GAT</h3>
+                            <div class="relative w-full h-64 diagram-container">
+                                <div class="diagram-node node-center" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 10%; left: 50%; transform: translateX(-50%);"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: 50%; width: 52px; transform: rotate(90deg) translateY(-25px) translateX(-25px);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 90%; left: 50%; transform: translateX(-50%);"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: 50%; width: 52px; transform: rotate(-90deg) translateY(25px) translateX(25px);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 50%; left: 10%; transform: translateY(-50%);"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: calc(10% + 25px); width: 52px;"></div>
+                                <div class="diagram-node node-neighbor" style="top: 50%; left: 90%; transform: translateY(-50%);"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: calc(50% + 25px); width: 52px;"></div>
+                                <div class="diagram-node node-neighbor" style="top: 25%; left: 25%; transform: translate(-50%, -50%);"></div>
+                                <div class="diagram-line" style="top: calc(37.5% + 25px - 1px); left: calc(25% + 25px); width: 37px; transform: rotate(-45deg);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 75%; left: 75%; transform: translate(-50%, -50%);"></div>
+                                <div class="diagram-line" style="top: calc(62.5% + 25px - 1px); left: calc(50% + 25px); width: 37px; transform: rotate(-45deg);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 25%; left: 75%; transform: translate(-50%, -50%);"></div>
+                                <div class="diagram-line" style="top: calc(37.5% + 25px - 1px); left: calc(50% + 25px); width: 37px; transform: rotate(45deg);"></div>
+                                <div class="diagram-node node-neighbor" style="top: 75%; left: 25%; transform: translate(-50%, -50%);"></div>
+                                <div class="diagram-line" style="top: calc(62.5% + 25px - 1px); left: calc(25% + 25px); width: 37px; transform: rotate(45deg);"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Computes attention over ALL neighbors.</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-semibold text-xl mb-4">Neighbor Sampling</h3>
+                            <div class="relative w-full h-64 diagram-container" id="sampling-diagram">
+                                <div class="diagram-node node-center" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                                <!-- Full set of neighbors (for visual context) -->
+                                <div class="diagram-node node-neighbor" style="top: 10%; left: 50%; transform: translateX(-50%);" data-neighbor="1"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: 50%; width: 52px; transform: rotate(90deg) translateY(-25px) translateX(-25px);" data-neighbor="1"></div>
+                                <div class="diagram-node node-neighbor" style="top: 90%; left: 50%; transform: translateX(-50%);" data-neighbor="2"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: 50%; width: 52px; transform: rotate(-90deg) translateY(25px) translateX(25px);" data-neighbor="2"></div>
+                                <div class="diagram-node node-neighbor" style="top: 50%; left: 10%; transform: translateY(-50%);" data-neighbor="3"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: calc(10% + 25px); width: 52px;" data-neighbor="3"></div>
+                                <div class="diagram-node node-neighbor" style="top: 50%; left: 90%; transform: translateY(-50%);" data-neighbor="4"></div>
+                                <div class="diagram-line" style="top: calc(50% + 25px - 1px); left: calc(50% + 25px); width: 52px;" data-neighbor="4"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Computes attention over a small, fixed-size sample.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="architecture" class="content-section">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h2 class="text-2xl font-bold text-cyan-700 mb-4">Architectural Modifications to GAT</h2>
+                    <p class="text-gray-700 mb-6">Another powerful approach is to modify the GAT architecture itself to reduce the complexity of the attention mechanism. Instead of attending to all neighbors, these variants use sparse attention, focusing only on a subset. This can significantly improve efficiency while maintaining high performance by learning to ignore irrelevant neighbors.</p>
+                    <div class="bg-cyan-50 border border-cyan-200 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sparse GAT Variants</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-700">How It Works</h4>
+                                <p class="text-gray-600">These models alter the core attention mechanism to compute scores for only a sparse subset of neighbors, rather than all of them. This is often achieved through learnable pruning mechanisms or simplified attention calculations that reduce the complexity from quadratic to linear with respect to the number of neighbors.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">Key Advantages</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Directly reduces the computational bottleneck in GAT.</li>
+                                    <li>Can improve model robustness by filtering out noisy connections.</li>
+                                    <li>Maintains the expressive power of attention while being more efficient.</li>
+                                </ul>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold text-gray-700">Examples</h4>
+                                <p class="text-gray-600">Notable variants include <span class="font-medium text-cyan-600">SGAT (Sparse Graph Attention Network)</span>, which learns to prune edges, and <span class="font-medium text-cyan-600">FastGAT</span>, which uses a simplified and faster attention calculation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="alternatives" class="content-section">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h2 class="text-2xl font-bold text-cyan-700 mb-4">Alternative GNN Frameworks</h2>
+                    <p class="text-gray-700 mb-6">For maximum scalability, you can consider alternative GNN frameworks that are inherently more efficient than the standard GAT. The most prominent approach involves decoupling the feature transformation and propagation steps, which allows the expensive graph convolution to be performed once as a pre-computation step.</p>
+                     <div class="bg-cyan-50 border border-cyan-200 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Decoupling Transformation and Propagation</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-700">How It Works</h4>
+                                <p class="text-gray-600">This method separates the model into two stages. First, feature propagation across the graph is pre-computed and saved. Second, a simple classifier (like a multi-layer perceptron) is trained on these pre-computed, smoothed features. The GNN training loop is thus replaced by a much faster standard classifier training loop.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">Key Advantages</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    <li>Extremely fast and memory-efficient during training.</li>
+                                    <li>Can achieve surprisingly high, state-of-the-art performance.</li>
+                                    <li>Simplifies the model architecture significantly.</li>
+                                </ul>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold text-gray-700">Popular Implementation</h4>
+                                <p class="text-gray-600">The most well-known example is <span class="font-medium text-cyan-600">SGC (Simple Graph Convolution)</span>, which demonstrates the power of this decoupled approach.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section class="mt-16 bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-cyan-700 mb-2">Strategy Comparison</h2>
+            <p class="text-center text-gray-600 mb-6">Interactively compare the different strategies based on key factors.</p>
+            <div class="flex justify-center gap-2 mb-8">
+                <button data-metric="cost" class="comparison-button font-medium py-2 px-4 rounded-md bg-cyan-100 text-cyan-800 border border-cyan-200">Cost Reduction</button>
+                <button data-metric="accuracy" class="comparison-button font-medium py-2 px-4 rounded-md bg-white text-gray-700 border border-gray-200">Accuracy Impact</button>
+                <button data-metric="ease" class="comparison-button font-medium py-2 px-4 rounded-md bg-white text-gray-700 border border-gray-200">Implementation Ease</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </section>
+
+        <footer class="mt-16 border-t pt-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Practical Resources</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <a href="https://pytorch-geometric.readthedocs.io/en/latest/notes/scaling_gnns.html" target="_blank" rel="noopener noreferrer" class="resource-card block bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-xl text-cyan-700">PyTorch Geometric</h3>
+                    <p class="text-gray-600">Explore the official PyG documentation on scaling GNNs, including tutorials on neighbor sampling and clustering.</p>
+                </a>
+                <a href="https://docs.dgl.ai/en/latest/guide/training-large.html" target="_blank" rel="noopener noreferrer" class="resource-card block bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-xl text-cyan-700">Deep Graph Library</h3>
+                    <p class="text-gray-600">Read the DGL user guide for training on large graphs, with detailed examples and best practices.</p>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            const comparisonButtons = document.querySelectorAll('.comparison-button');
+            let comparisonChart;
+
+            const chartData = {
+                cost: {
+                    labels: ['Sampling', 'Sparse GAT', 'Decoupled SGC'],
+                    values: [3, 2, 4], // High, Medium, Very High
+                    title: 'Reduction in Computational Cost',
+                    backgroundColor: 'rgba(22, 163, 74, 0.6)',
+                    borderColor: 'rgba(22, 163, 74, 1)',
+                },
+                accuracy: {
+                    labels: ['Sampling', 'Sparse GAT', 'Decoupled SGC'],
+                    values: [2, 3, 1.5], // Low Impact, Maintained, Can be lower
+                    title: 'Impact on Model Accuracy (Higher is better)',
+                    backgroundColor: 'rgba(8, 145, 178, 0.6)',
+                    borderColor: 'rgba(8, 145, 178, 1)',
+                },
+                ease: {
+                    labels: ['Sampling', 'Sparse GAT', 'Decoupled SGC'],
+                    values: [3, 2, 4], // Easy, Moderate, Very Easy
+                    title: 'Ease of Implementation',
+                    backgroundColor: 'rgba(251, 146, 60, 0.6)',
+                    borderColor: 'rgba(251, 146, 60, 1)',
+                }
+            };
+
+            const valueMapping = {
+                cost: ["Low", "Medium", "High", "Very High"],
+                accuracy: ["Lower", "Slight Impact", "Maintained", "High"],
+                ease: ["Hard", "Moderate", "Easy", "Very Easy"]
+            };
+
+            function updateChartView(metric) {
+                const data = chartData[metric];
+                comparisonChart.data.labels = data.labels;
+                comparisonChart.data.datasets[0].data = data.values;
+                comparisonChart.data.datasets[0].backgroundColor = data.backgroundColor;
+                comparisonChart.data.datasets[0].borderColor = data.borderColor;
+                comparisonChart.options.plugins.title.text = data.title;
+                comparisonChart.options.scales.y.ticks.callback = function(value) {
+                    return valueMapping[metric][value] || '';
+                }
+                comparisonChart.update();
+
+                comparisonButtons.forEach(btn => {
+                    btn.classList.remove('bg-cyan-100', 'text-cyan-800', 'border-cyan-200');
+                    btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+                    if (btn.dataset.metric === metric) {
+                        btn.classList.add('bg-cyan-100', 'text-cyan-800', 'border-cyan-200');
+                        btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+                    }
+                });
+            }
+
+            function createChart() {
+                const ctx = document.getElementById('comparisonChart').getContext('2d');
+                comparisonChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Relative Score',
+                            data: [],
+                            backgroundColor: [],
+                            borderColor: [],
+                            borderWidth: 1,
+                            barThickness: 50,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'x',
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 4,
+                                ticks: {
+                                    stepSize: 1,
+                                    color: '#4b5563',
+                                    font: { size: 12 }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#1f2937',
+                                    font: { size: 14, weight: '500' }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: '',
+                                font: {
+                                    size: 18,
+                                    weight: '600'
+                                },
+                                color: '#334155',
+                                padding: {
+                                    bottom: 20
+                                }
+                            },
+                            tooltip: {
+                                enabled: false
+                            }
+                        }
+                    }
+                });
+                updateChartView('cost');
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === target) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            comparisonButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    updateChartView(button.dataset.metric);
+                });
+            });
+
+            // Sampling diagram interaction
+            const diagram = document.getElementById('sampling-diagram');
+            const neighborNodes = diagram.querySelectorAll('.node-neighbor');
+            const neighborLines = diagram.querySelectorAll('.diagram-line');
+
+            // Randomly highlight 2 neighbors initially
+            const highlightIndices = new Set();
+            while(highlightIndices.size < 2) {
+                highlightIndices.add(Math.floor(Math.random() * neighborNodes.length) + 1);
+            }
+
+            function updateHighlights(indices) {
+                 neighborNodes.forEach(node => {
+                    if (indices.has(parseInt(node.dataset.neighbor))) {
+                        node.classList.add('highlight');
+                    } else {
+                        node.classList.remove('highlight');
+                    }
+                });
+                neighborLines.forEach(line => {
+                     if (indices.has(parseInt(line.dataset.neighbor))) {
+                        line.classList.add('highlight');
+                    } else {
+                        line.classList.remove('highlight');
+                    }
+                });
+            }
+
+            diagram.addEventListener('mouseenter', () => {
+                const newIndices = new Set();
+                while(newIndices.size < 2) {
+                    newIndices.add(Math.floor(Math.random() * neighborNodes.length) + 1);
+                }
+                updateHighlights(newIndices);
+            });
+
+            // Initial state
+            document.querySelector('.nav-button[data-tab="sampling"]').classList.add('active');
+            document.getElementById('sampling').classList.add('active');
+            createChart();
+            updateHighlights(highlightIndices);
+        });
+    </script>
+</body>
+</html>
