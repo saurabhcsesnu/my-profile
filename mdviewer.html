@@ -230,7 +230,8 @@
         const renderer = new marked.Renderer();
         const originalLinkRenderer = renderer.link;
         renderer.link = (href, title, text) => {
-            if (href.startsWith('file://')) {
+            // FIX: Check if href is a string before calling .startsWith()
+            if (typeof href === 'string' && href.startsWith('file://')) {
                 const fileId = href.substring(7);
                 return `<a href="#" class="internal-link text-purple-600 hover:text-purple-800" data-file-id="${fileId}" title="Link to note: ${fileId}">${text}</a>`;
             }
