@@ -141,20 +141,26 @@ class MarkdownViewer {
     }
 
     openFile(id) {
-        if (!this.files[id]) return;
+    if (!this.files[id]) return;
 
-        this.currentFileId = id;
-        const file = this.files[id];
+    this.currentFileId = id;
+    const file = this.files[id];
 
-        this.elements.currentFileName.textContent = file.name;
-        this.elements.currentFileId.textContent = `ID: ${id}`;
-        this.elements.markdownInput.value = file.content;
+    this.elements.currentFileName.textContent = file.name;
+    this.elements.currentFileId.textContent = `ID: ${id}`;
+    this.elements.markdownInput.value = file.content;
 
-        this.updatePreview();
-        this.updateWordCount();
-        this.renderFileList();
-        this.updateStatus(`Opened: ${file.name}`);
+    this.updatePreview(); // This should already be here
+    this.updateWordCount();
+    this.renderFileList();
+    this.updateStatus(`Opened: ${file.name}`);
+
+    // Force update preview if in preview or split mode
+    if (this.viewMode === 'preview' || this.viewMode === 'split') {
+        setTimeout(() => this.updatePreview(), 100);
     }
+  }
+
 
     saveCurrentFile() {
         if (!this.currentFileId) {
@@ -292,37 +298,40 @@ ${this.processReferences(marked(file.content))}
     }
 
     setViewMode(mode) {
-        this.viewMode = mode;
+    this.viewMode = mode;
 
-        // Update button states
-        document.querySelectorAll('.btn-toggle').forEach(btn => btn.classList.remove('active'));
+    // Update button states
+    document.querySelectorAll('.btn-toggle').forEach(btn => btn.classList.remove('active'));
 
-        switch(mode) {
-            case 'edit':
-                this.elements.editModeBtn.classList.add('active');
-                this.elements.editor.classList.remove('hidden');
-                this.elements.preview.classList.add('hidden');
-                this.elements.editor.style.flex = '1';
-                break;
+    // Reset styles
+    this.elements.editor.style.flex = '';
+    this.elements.preview.style.flex = '';
 
-            case 'preview':
-                this.elements.previewModeBtn.classList.add('active');
-                this.elements.editor.classList.add('hidden');
-                this.elements.preview.classList.remove('hidden');
-                this.elements.preview.style.flex = '1';
-                break;
+    switch(mode) {
+        case 'edit':
+            this.elements.editModeBtn.classList.add('active');
+            this.elements.editor.classList.remove('hidden');
+            this.elements.preview.classList.add('hidden');
+            break;
 
-            case 'split':
-                this.elements.splitModeBtn.classList.add('active');
-                this.elements.editor.classList.remove('hidden');
-                this.elements.preview.classList.remove('hidden');
-                this.elements.editor.style.flex = '1';
-                this.elements.preview.style.flex = '1';
-                break;
-        }
+        case 'preview':
+            this.elements.previewModeBtn.classList.add('active');
+            this.elements.editor.classList.add('hidden');
+            this.elements.preview.classList.remove('hidden');
+            this.updatePreview(); // Ensure preview is updated
+            break;
 
-        this.updatePreview();
+        case 'split':
+            this.elements.splitModeBtn.classList.add('active');
+            this.elements.editor.classList.remove('hidden');
+            this.elements.preview.classList.remove('hidden');
+            this.elements.editor.style.flex = '1';
+            this.elements.preview.style.flex = '1';
+            this.updatePreview(); // Ensure preview is updated
+            break;
     }
+  }
+
 
     renderFileList() {
         const fileListEl = this.elements.fileList;

@@ -208,6 +208,16 @@ header h1 {
 .editor.hidden {
     display: none;
 }
+/* Add this to ensure proper display */
+.preview {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    border-left: 1px solid #e0e0e0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
 
 .status-bar {
     background: #34495e;
