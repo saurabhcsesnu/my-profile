@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown File Viewer</title>
+    <link rel="stylesheet" href="mdv_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Markdown File Viewer</h1>
+            <div class="controls">
+                <button id="newFileBtn" class="btn btn-primary">New File</button>
+                <button id="saveFileBtn" class="btn btn-success">Save File</button>
+                <input type="file" id="loadFileInput" accept=".md,.txt" style="display: none;">
+                <button id="loadFileBtn" class="btn btn-secondary">Load File</button>
+                <button id="exportBtn" class="btn btn-info">Export HTML</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h3>Files</h3>
+                <div id="fileList" class="file-list"></div>
+                <div class="file-actions">
+                    <input type="text" id="fileNameInput" placeholder="Enter file name" class="file-input">
+                    <button id="createFileBtn" class="btn btn-small">Create</button>
+                </div>
+            </div>
+
+            <div class="editor-section">
+                <div class="file-info">
+                    <span id="currentFileName">No file selected</span>
+                    <span id="currentFileId" class="file-id"></span>
+                </div>
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <button id="editModeBtn" class="btn btn-toggle active">Edit</button>
+                        <button id="previewModeBtn" class="btn btn-toggle">Preview</button>
+                        <button id="splitModeBtn" class="btn btn-toggle">Split</button>
+                    </div>
+                    <div class="editor-content">
+                        <div id="editor" class="editor">
+                            <textarea id="markdownInput" placeholder="Start typing your markdown..."></textarea>
+                        </div>
+                        <div id="preview" class="preview"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span id="statusText">Ready</span>
+            <span id="wordCount">Words: 0</span>
+        </div>
+    </div>
+
+    <script src="mdv_script.js"></script>
+</body>
+</html>
