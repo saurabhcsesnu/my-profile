@@ -164,18 +164,26 @@
 
         // --- Firebase Configuration ---
         // IMPORTANT: PASTE YOUR FIREBASE CONFIGURATION HERE
+        // To get this configuration:
+        // 1. Go to your Firebase project console (https://console.firebase.google.com/).
+        // 2. Create a new project if you don't have one.
+        // 3. Add a web app to your project.
+        // 4. In the project settings, find your web app.
+        // 5. Under "Firebase SDK snippet", choose "Config" and copy the object here.
         const firebaseConfig = {
             apiKey: "AIzaSyCVLXFS2or49REpWM8E_s5VBN4MF86uGSY",
             authDomain: "mdviewer-a52ea.firebaseapp.com",
             projectId: "mdviewer-a52ea",
-            storageBucket: "mdviewer-a52ea.appspot.com",
+            storageBucket: "mdviewer-a52ea.firebasestorage.app",
             messagingSenderId: "49380689291",
             appId: "1:49380689291:web:508d22f05f7f4c964e1b8e",
             measurementId: "G-PEW342Z6B9"
-        };
+          };
 
         // --- App ID for Firestore path ---
-        const appId = 'my-markdown-notes-app';
+        // This should be a unique name for your application to avoid data collisions
+        // if you use the same Firebase project for multiple apps.
+        const appId = 'markDView';
 
         // --- App State ---
         let db, auth, userId;
@@ -205,13 +213,12 @@
         const modalConfirmBtn = document.getElementById('modal-confirm-btn');
 
         // --- Utility Functions ---
-        function showNotification(message, isError = false) {
+        function showNotification(message) {
             notificationBox.textContent = message;
-            notificationBox.classList.remove('hidden', 'bg-slate-800', 'bg-red-600');
-            notificationBox.classList.add(isError ? 'bg-red-600' : 'bg-slate-800');
+            notificationBox.classList.remove('hidden');
             setTimeout(() => {
                 notificationBox.classList.add('hidden');
-            }, isError ? 5000 : 3000);
+            }, 3000);
         }
 
         function showConfirmation(title, body, onConfirm) {
@@ -238,12 +245,9 @@
         };
         marked.setOptions({ renderer });
 
-        // --- Helper function to get the base collection path ---
-        const getCollectionPath = () => `artifacts/${appId}/users/${userId}/markdownFiles`;
-
         // --- Firestore and Application Logic ---
         async function initialize() {
-            if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+            if (!firebaseConfig.apiKey) {
                  fileListLoader.innerHTML = `
                     <div class="text-left text-sm p-3 bg-red-100 text-red-800 rounded-lg">
                         <p class="font-bold">Configuration Needed!</p>
@@ -261,31 +265,10 @@
                         userIdDisplay.textContent = userId;
                         await setupFileListener();
                     } else {
-                        const handleAuthError = (error) => {
-                            console.error("Firebase Auth Failed:", error);
-                            if (error.code === 'auth/configuration-not-found') {
-                                fileListLoader.innerHTML = `
-                                    <div class="text-left text-sm p-3 bg-red-100 text-red-800 rounded-lg">
-                                        <p class="font-bold">Action Required: Enable Anonymous Sign-In</p>
-                                        <p class="mt-1">This app uses anonymous sign-in to save your notes securely.</p>
-                                        <p class="mt-2 font-semibold">How to fix:</p>
-                                        <ol class="list-decimal list-inside mt-1 text-xs">
-                                            <li>Go to your Firebase Console > <strong>Authentication</strong>.</li>
-                                            <li>Select the <strong>Sign-in method</strong> tab.</li>
-                                            <li>Click <strong>Add new provider</strong> and select <strong>Anonymous</strong>.</li>
-                                            <li>Enable it and click Save.</li>
-                                            <li>Refresh this page.</li>
-                                        </ol>
-                                    </div>`;
-                            } else {
-                                fileListLoader.textContent = 'Error: Authentication failed.';
-                            }
-                        };
-
-                        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                            signInWithCustomToken(auth, __initial_auth_token).catch(() => signInAnonymously(auth).catch(handleAuthError));
+                         if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                            await signInWithCustomToken(auth, __initial_auth_token).catch(error => signInAnonymously(auth));
                         } else {
-                            signInAnonymously(auth).catch(handleAuthError);
+                            await signInAnonymously(auth).catch(error => console.error("Anonymous sign-in failed:", error));
                         }
                     }
                 });
@@ -297,8 +280,7 @@
 
         async function setupFileListener() {
             if (fileUnsubscribe) fileUnsubscribe();
-            if (!userId) return;
-            const filesCollectionRef = collection(db, getCollectionPath());
+            const filesCollectionRef = collection(db, `artifacts/${appId}/users/${userId}/markdownFiles`);
             const q = query(filesCollectionRef);
             fileUnsubscribe = onSnapshot(q, (snapshot) => {
                 fileListLoader.classList.add('hidden');
@@ -306,9 +288,9 @@
                 if (snapshot.empty) {
                     fileListEl.innerHTML = `<div class="text-center p-4 text-slate-500 text-sm">No notes yet. Create one!</div>`;
                 } else {
-                    const docs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    docs.forEach(doc => {
-                        const title = doc.content?.split('\n')[0].replace(/#/g, '').trim() || 'Untitled Note';
+                    snapshot.docs.forEach(doc => {
+                        const fileData = doc.data();
+                        const title = fileData.content?.split('\n')[0].replace(/#/g, '').trim() || 'Untitled Note';
                         const fileItem = document.createElement('div');
                         fileItem.className = `p-3 my-1 rounded-lg cursor-pointer transition-colors ${doc.id === currentFileId ? 'bg-blue-100 text-blue-800' : 'hover:bg-slate-100'}`;
                         fileItem.textContent = title;
@@ -319,24 +301,7 @@
                 }
             }, (error) => {
                 console.error("Error fetching files:", error);
-                if (error.code === 'permission-denied') {
-                    fileListLoader.classList.remove('hidden');
-                    fileListLoader.innerHTML = `
-                        <div class="text-left text-sm p-3 bg-red-100 text-red-800 rounded-lg">
-                            <p class="font-bold">Action Required: Update Security Rules</p>
-                            <p class="mt-1">Your database security rules are blocking access to your notes.</p>
-                            <p class="mt-2 font-semibold">How to fix:</p>
-                            <ol class="list-decimal list-inside mt-1 text-xs">
-                                <li>Go to your Firebase Console > <strong>Firestore Database</strong>.</li>
-                                <li>Select the <strong>Rules</strong> tab.</li>
-                                <li>Replace the existing rules with the code provided in the project's documentation.</li>
-                                <li>Click <strong>Publish</strong>.</li>
-                                <li>Refresh this page.</li>
-                            </ol>
-                        </div>`;
-                } else {
-                    fileListLoader.textContent = 'Error loading files.';
-                }
+                fileListLoader.textContent = 'Error loading files.';
             });
         }
 
@@ -346,7 +311,7 @@
             isEditing = false;
             updateUIForFileSelection();
             if (currentFileUnsubscribe) currentFileUnsubscribe();
-            const fileRef = doc(db, getCollectionPath(), fileId);
+            const fileRef = doc(db, `artifacts/${appId}/users/${userId}/markdownFiles`, fileId);
             currentFileUnsubscribe = onSnapshot(fileRef, (docSnap) => {
                 if (docSnap.exists() && !isEditing) {
                     const fileData = docSnap.data();
@@ -355,11 +320,6 @@
                 } else if (!docSnap.exists()) {
                     showNotification("The selected note was deleted.");
                     resetToPlaceholder();
-                }
-            }, (error) => {
-                console.error("Error listening to file:", error);
-                if (error.code === 'permission-denied'){
-                    showNotification("Permission denied. Check Firestore rules.", true);
                 }
             });
         }
@@ -380,9 +340,7 @@
             if(currentFileUnsubscribe) currentFileUnsubscribe();
             placeholderScreen.classList.remove('hidden');
             editorScreen.classList.add('hidden');
-            document.querySelectorAll('#file-list > div').forEach(el => {
-                 el.classList.remove('bg-blue-100', 'text-blue-800');
-            });
+            setupFileListener();
         }
 
         function switchToViewMode() {
@@ -404,24 +362,17 @@
 
         // --- Event Handlers ---
         newFileBtn.addEventListener('click', async () => {
-            if (!userId) {
-                showNotification("Please wait, authenticating...", true);
-                return;
-            }
             const newFile = {
                 content: "# New Note\n\nStart writing your thoughts here.",
                 createdAt: serverTimestamp()
             };
             try {
-                const docRef = await addDoc(collection(db, getCollectionPath()), newFile);
+                const docRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/markdownFiles`), newFile);
                 selectFile(docRef.id);
                 showNotification("New note created!");
             } catch (error) {
                 console.error("Error creating new file:", error);
-                const message = error.code === 'permission-denied'
-                    ? "Creation failed. Check Firestore rules."
-                    : "Error: Could not create note.";
-                showNotification(message, true);
+                showNotification("Error: Could not create note.");
             }
         });
 
@@ -430,7 +381,7 @@
         saveBtn.addEventListener('click', async () => {
             if (!currentFileId) return;
             const content = editor.value;
-            const fileRef = doc(db, getCollectionPath(), currentFileId);
+            const fileRef = doc(db, `artifacts/${appId}/users/${userId}/markdownFiles`, currentFileId);
             try {
                 await setDoc(fileRef, { content: content, updatedAt: serverTimestamp() }, { merge: true });
                 showNotification("Note saved successfully!");
@@ -438,10 +389,7 @@
                 switchToViewMode();
             } catch (error) {
                 console.error("Error saving file:", error);
-                const message = error.code === 'permission-denied'
-                    ? "Save failed. Check Firestore rules."
-                    : "Error: Could not save note.";
-                showNotification(message, true);
+                showNotification("Error: Could not save note.");
             }
         });
 
@@ -451,17 +399,14 @@
                 "Delete this note?",
                 "This action cannot be undone. Are you sure you want to permanently delete this note?",
                 async () => {
-                    const fileRef = doc(db, getCollectionPath(), currentFileId);
+                    const fileRef = doc(db, `artifacts/${appId}/users/${userId}/markdownFiles`, currentFileId);
                     try {
                         await deleteDoc(fileRef);
                         showNotification("Note deleted.");
                         resetToPlaceholder();
                     } catch (error) {
                         console.error("Error deleting file:", error);
-                        const message = error.code === 'permission-denied'
-                            ? "Delete failed. Check Firestore rules."
-                            : "Error: Could not delete note.";
-                        showNotification(message, true);
+                        showNotification("Error: Could not delete note.");
                     }
                 }
             );
