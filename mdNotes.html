@@ -25,11 +25,22 @@
         .markdown-body p { margin-bottom: 1em; line-height: 1.6; } .markdown-body ul, .markdown-body ol { margin-left: 1.5em; margin-bottom: 1em; }
         .markdown-body pre { background-color: #1e293b; color: #e2e8f0; padding: 1em; border-radius: 0.5rem; }
         .markdown-body a.internal-link { text-decoration: underline; color: #5b21b6; }
-        #markmap-svg, .cropper-container { width: 100%; height: 100%; }
+        #markmap-svg { width: 100%; height: 100%; }
         .mode-btn.active { background-color: white; color: #334155; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
         .loader { width: 16px; height: 16px; border: 2px solid #FFF; border-bottom-color: transparent; border-radius: 50%; display: inline-block; animation: rotation 1s linear infinite; }
         @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        #cropper-image-container { max-height: 60vh; } #cropper-image-container img { max-width: 100%; max-height: 60vh; }
+
+        /* Cropper.js Fixes */
+        #cropper-image-container {
+            height: 60vh; /* Fixed height for the container */
+            width: 100%;
+            background-color: #f1f5f9;
+        }
+        #cropper-image {
+            display: block; /* Important for Cropper.js */
+            max-width: 100%; /* Ensure image is not larger than its container */
+            max-height: 100%;
+        }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800">
@@ -60,12 +71,12 @@
     <div id="notification-box" class="hidden fixed bottom-5 right-5 bg-slate-800 text-white py-2 px-4 rounded-lg shadow-lg z-40"></div>
     <div id="share-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 h-full w-full flex items-center justify-center z-50"><div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md mx-auto"><h3 class="text-lg font-medium text-slate-900 mb-2">Note Published!</h3><p class="text-sm text-slate-600 mb-4">Anyone with this link can view your note.</p><input id="share-url-input" type="text" readonly class="w-full bg-slate-100 text-slate-600 text-sm font-mono p-2 rounded border border-slate-300"><div class="flex justify-end gap-3 mt-4"><button id="copy-share-url-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Copy Link</button><button id="close-share-modal-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg">Close</button></div></div></div>
     <div id="confirmation-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 h-full w-full flex items-center justify-center z-50"><div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-sm mx-auto"><h3 id="modal-title" class="text-lg font-medium text-slate-900 mb-4"></h3><p id="modal-body" class="text-sm text-slate-600 mb-6"></p><div class="flex justify-end gap-3"><button id="modal-cancel-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg">Cancel</button><button id="modal-confirm-btn" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Confirm</button></div></div></div>
-    <div id="image-editor-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 h-full w-full flex items-center justify-center z-50 p-4"><div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl mx-auto flex flex-col"><h3 class="text-xl font-semibold text-slate-900 mb-4">Edit Image</h3><div id="cropper-image-container" class="mb-4 bg-slate-100 flex justify-center items-center rounded"><img id="cropper-image" src=""></div><div class="flex justify-end gap-3"><button id="cancel-crop-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg">Cancel</button><button id="confirm-crop-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2"><span class="btn-text">Upload Image</span><span class="loader hidden"></span></button></div></div></div>
+    <div id="image-editor-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 h-full w-full flex items-center justify-center z-50 p-4"><div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-2xl mx-auto flex flex-col"><h3 class="text-xl font-semibold text-slate-900 mb-4">Edit Image</h3><div id="cropper-image-container" class="mb-4"><img id="cropper-image"></div><div class="flex justify-end gap-3"><button id="cancel-crop-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 px-4 rounded-lg">Cancel</button><button id="confirm-crop-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg flex items-center gap-2"><span class="btn-text">Upload Image</span><span class="loader hidden"></span></button></div></div></div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, addDoc, setDoc, deleteDoc, onSnapshot, collection, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
         // --- PASTE YOUR FIREBASE CONFIG HERE ---
@@ -79,6 +90,8 @@
             measurementId: "G-PEW342Z6B9"
         };
         const appId = 'my-markdown-notes-app';
+        // --- PASTE YOUR GEMINI API KEY HERE ---
+        const GEMINI_API_KEY = "AIzaSyDyNqJCYas2Pt-JEMYPyPAVzX6OKwZMZ4w";
 
         // --- App State ---
         let db, auth, storage, userId, currentFile = null, currentMode = 'view';
@@ -134,6 +147,36 @@
         };
         marked.setOptions({ renderer });
 
+        // --- Gemini API Logic ---
+        const callGemini = async (prompt) => {
+            if (!GEMINI_API_KEY) {
+                showNotification("Gemini API Key is missing.", true);
+                return null;
+            }
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
+            const payload = { contents: [{ parts: [{ text: prompt }] }] };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error?.message || "An unknown error occurred.");
+                }
+
+                const result = await response.json();
+                return result.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                showNotification(`AI Error: ${error.message}`, true);
+                return null;
+            }
+        };
+
         // --- Core Application Logic ---
         const switchMode = (newMode) => {
             currentMode = newMode;
@@ -156,6 +199,7 @@
 
         const resetToPlaceholder = () => {
             currentFile = null;
+            if(currentFileUnsubscribe) currentFileUnsubscribe();
             ui.editorScreen.classList.add('hidden');
             ui.placeholderScreen.classList.remove('hidden');
         };
@@ -173,7 +217,7 @@
         };
 
         const selectFile = async (fileId) => {
-            console.log("DEBUG: Selecting file:", fileId);
+            if (currentFile?.id === fileId) return;
             if (currentFileUnsubscribe) currentFileUnsubscribe();
 
             const fileRef = doc(db, getPrivatePath(fileId));
@@ -186,20 +230,19 @@
                 currentFile = { id: docSnap.id, ...docSnap.data() };
                 ui.editor.value = currentFile.content;
                 ui.viewer.innerHTML = marked.parse(currentFile.content);
-                updatePublishButton(currentFile.isPublished);
+                updatePublishButton(!!currentFile.isPublished);
 
                 ui.placeholderScreen.classList.add('hidden');
                 ui.editorScreen.classList.remove('hidden');
                 switchMode('view');
 
-                // Highlight selected file in the list
                 document.querySelectorAll('#file-list > div').forEach(div => {
                     div.classList.toggle('bg-blue-100', div.dataset.id === fileId);
                     div.classList.toggle('text-blue-800', div.dataset.id === fileId);
                 });
 
             }, (error) => {
-                console.error("DEBUG: Error listening to file:", error);
+                console.error("Error listening to file:", error);
                 showNotification("Error loading note.", true);
             });
         };
@@ -208,7 +251,11 @@
             if (!currentFile || !userId) return false;
             try {
                 const fileRef = doc(db, getPrivatePath(currentFile.id));
-                await setDoc(fileRef, { content: ui.editor.value }, { merge: true });
+                await updateDoc(fileRef, { content: ui.editor.value });
+                if(currentFile.isPublished) {
+                    const publicRef = doc(db, getPublicPath(currentFile.id));
+                    await updateDoc(publicRef, { content: ui.editor.value });
+                }
                 return true;
             } catch (error) {
                 console.error("Save error:", error);
@@ -218,13 +265,11 @@
         };
 
         const setupFileListener = () => {
-            console.log("DEBUG: setupFileListener called for User ID:", userId);
             if (fileUnsubscribe) fileUnsubscribe();
-            if (!userId) { console.error("DEBUG: setupFileListener cannot run, userId is null."); return; }
+            if (!userId) { return; }
 
             const q = query(collection(db, getPrivatePath()));
             fileUnsubscribe = onSnapshot(q, (snapshot) => {
-                console.log("DEBUG: Firestore onSnapshot callback executed successfully.");
                 clearTimeout(loaderTimeout);
                 ui.fileListLoader.classList.add('hidden');
 
@@ -233,6 +278,7 @@
                 } else {
                     const files = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                     ui.fileList.innerHTML = '';
+                    files.sort((a,b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
                     files.forEach(fileData => {
                         const title = (fileData.content || '').split('\n')[0].replace(/#/g, '').trim() || 'Untitled Note';
                         const fileItem = document.createElement('div');
@@ -243,15 +289,77 @@
                     });
                 }
             }, (error) => {
-                console.error("DEBUG: Firestore onSnapshot listener failed:", error);
                 ui.fileListLoader.innerHTML = `<div class="text-red-500 text-sm">Error: Could not load files. Check console.</div>`;
             });
         };
 
         // --- Image Editing Logic ---
-        const openImageEditor = (file) => { /* ... (implementation is correct) */ };
-        const closeImageEditor = () => { /* ... (implementation is correct) */ };
-        const handleImageUpload = () => { /* ... (implementation is correct) */ };
+        const openImageEditor = (file) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                ui.cropperImage.src = e.target.result;
+                ui.imageEditorModal.classList.remove('hidden');
+                if (cropper) cropper.destroy();
+                cropper = new Cropper(ui.cropperImage, {
+                    viewMode: 1, // Restrict crop box to be within the canvas
+                    background: false,
+                    autoCropArea: 0.8,
+                    responsive: true,
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+
+        const closeImageEditor = () => {
+            if (cropper) cropper.destroy();
+            cropper = null;
+            ui.cropperImage.src = ""; // Clear image source
+            ui.imageEditorModal.classList.add('hidden');
+        };
+
+        const handleImageUpload = () => {
+            if (!cropper || !userId) return;
+            setButtonLoadingState(ui.confirmCropBtn, true);
+
+            // Get cropped canvas, but limit its size for performance
+            const croppedCanvas = cropper.getCroppedCanvas({
+                maxWidth: 1920,
+                maxHeight: 1080,
+                imageSmoothingEnabled: true,
+                imageSmoothingQuality: 'high',
+            });
+
+            croppedCanvas.toBlob(async (blob) => {
+                if (!blob) {
+                    showNotification("Failed to create image file.", true);
+                    setButtonLoadingState(ui.confirmCropBtn, false);
+                    return;
+                }
+
+                const imageName = `${userId}/${Date.now()}.png`;
+                const storageRef = ref(storage, imageName);
+                try {
+                    await uploadBytes(storageRef, blob);
+                    const downloadURL = await getDownloadURL(storageRef);
+                    const markdownImage = `![pasted image](${downloadURL})`;
+                    // Insert at cursor or append
+                    const { selectionStart, selectionEnd } = ui.editor;
+                    ui.editor.value = ui.editor.value.substring(0, selectionStart) + `\n${markdownImage}\n` + ui.editor.value.substring(selectionEnd);
+
+                    showNotification("Image uploaded successfully!");
+                    closeImageEditor();
+                } catch (error) {
+                    console.error("Image upload failed:", error);
+                    let message = "Image upload failed. Check console.";
+                    if (error.code?.includes('storage/unauthorized')) {
+                        message = "Upload failed: Check Firebase Storage rules.";
+                    }
+                    showNotification(message, true);
+                } finally {
+                    setButtonLoadingState(ui.confirmCropBtn, false);
+                }
+            }, 'image/png', 0.9); // Use PNG with 90% quality
+        };
 
         // --- Event Listeners Setup ---
         const attachEventListeners = () => {
@@ -261,7 +369,8 @@
                     const docRef = await addDoc(collection(db, getPrivatePath()), {
                         content: "# New Note\n\nStart writing here.",
                         createdAt: serverTimestamp(),
-                        isPublished: false
+                        isPublished: false,
+                        ownerId: userId
                     });
                     selectFile(docRef.id);
                     switchMode('edit');
@@ -270,41 +379,105 @@
 
             ui.saveBtn.addEventListener('click', async () => { if (await saveCurrentFile()) { showNotification("Note saved!"); switchMode('view'); }});
 
-            ui.publishBtn.addEventListener('click', async () => { /* ... (implementation is correct) */ });
+            ui.publishBtn.addEventListener('click', async () => {
+                if (!currentFile || !userId) return;
+                const publicRef = doc(db, getPublicPath(currentFile.id));
+                const privateRef = doc(db, getPrivatePath(currentFile.id));
 
-            ui.deleteBtn.addEventListener('click', () => { /* ... (implementation is correct) */ });
+                if (currentFile.isPublished) {
+                    showConfirmation("Unpublish Note?", "This will make the public link inactive. Are you sure?", async () => {
+                        try {
+                            await deleteDoc(publicRef);
+                            await updateDoc(privateRef, { isPublished: false });
+                            showNotification("Note unpublished.");
+                        } catch (error) { console.error("Unpublish Error:", error); showNotification("Could not unpublish note.", true); }
+                    });
+                } else {
+                     try {
+                        await setDoc(publicRef, { content: currentFile.content, ownerId: userId, publishedAt: serverTimestamp() });
+                        await updateDoc(privateRef, { isPublished: true });
+                        const shareUrl = `${window.location.origin}${window.location.pathname}?view=${currentFile.id}`;
+                        ui.shareUrlInput.value = shareUrl;
+                        ui.shareModal.classList.remove('hidden');
+                    } catch (error) { console.error("Publish Error:", error); showNotification("Could not publish note.", true); }
+                }
+            });
 
-            ui.summarizeBtn.addEventListener('click', async () => { /* ... (implementation is correct) */ });
+            ui.deleteBtn.addEventListener('click', () => {
+                if (!currentFile || !userId) return;
+                showConfirmation("Delete Note?", "This action cannot be undone. Are you sure?", async () => {
+                    try {
+                        if (currentFile.isPublished) await deleteDoc(doc(db, getPublicPath(currentFile.id)));
+                        await deleteDoc(doc(db, getPrivatePath(currentFile.id)));
+                        showNotification("Note deleted.");
+                        resetToPlaceholder();
+                    } catch (error) { console.error("Delete Error:", error); showNotification("Could not delete note.", true); }
+                });
+            });
 
-            ui.brainstormBtn.addEventListener('click', async () => { /* ... (implementation is correct) */ });
+            ui.summarizeBtn.addEventListener('click', async () => {
+                if (!currentFile || ui.editor.value.trim().length < 50) {
+                    return showNotification("Note is too short to summarize.", true);
+                }
+                setButtonLoadingState(ui.summarizeBtn, true);
+                const prompt = "Summarize the following note into a concise, well-structured bulleted list in Markdown format:\n\n" + ui.editor.value;
+                const summary = await callGemini(prompt);
+                if (summary) {
+                    ui.editor.value += `\n\n---\n\n**✨ AI Summary**\n${summary}`;
+                    ui.viewer.innerHTML = marked.parse(ui.editor.value);
+                }
+                setButtonLoadingState(ui.summarizeBtn, false);
+            });
+
+            ui.brainstormBtn.addEventListener('click', async () => {
+                if (!currentFile) return;
+                const title = ui.editor.value.split('\n')[0].replace(/#/g, '').trim() || 'this topic';
+                setButtonLoadingState(ui.brainstormBtn, true);
+                const prompt = `You are a helpful brainstorming assistant. For the topic "${title}", generate a list of related ideas, sub-topics, and questions to explore. Format your response in Markdown, using lists and sub-lists.`;
+                const ideas = await callGemini(prompt);
+                if (ideas) {
+                    ui.editor.value += `\n\n---\n\n**✨ Brainstormed Ideas**\n${ideas}`;
+                    ui.viewer.innerHTML = marked.parse(ui.editor.value);
+                }
+                setButtonLoadingState(ui.brainstormBtn, false);
+            });
 
             ui.viewSwitcher.addEventListener('click', (e) => { if (e.target.matches('.mode-btn')) switchMode(e.target.dataset.mode); });
             ui.fileList.addEventListener('click', (e) => { const item = e.target.closest('div[data-id]'); if(item) selectFile(item.dataset.id); });
             ui.viewer.addEventListener('click', (e) => { if (e.target.matches('a.internal-link')) { e.preventDefault(); selectFile(e.target.dataset.fileId); }});
 
-            // Modal and Image Editor listeners
             ui.copyShareUrlBtn.addEventListener('click', () => { ui.shareUrlInput.select(); document.execCommand('copy'); showNotification('Link copied!'); });
             ui.closeShareModalBtn.addEventListener('click', () => ui.shareModal.classList.add('hidden'));
             ui.modalCancelBtn.addEventListener('click', hideConfirmation);
             ui.modalConfirmBtn.addEventListener('click', () => { if (confirmCallback) confirmCallback(); hideConfirmation(); });
-            ui.editor.addEventListener('paste', (e) => { /* ... (implementation is correct) */ });
+
+            ui.editor.addEventListener('paste', (e) => {
+                if (e.clipboardData.files.length > 0) {
+                    const file = e.clipboardData.files[0];
+                    if (file.type.startsWith("image/")) {
+                        e.preventDefault();
+                        openImageEditor(file);
+                    }
+                }
+            });
             ui.cancelCropBtn.addEventListener('click', closeImageEditor);
             ui.confirmCropBtn.addEventListener('click', handleImageUpload);
         };
 
         // --- Initialization ---
         const initialize = async () => {
-            console.log("DEBUG: Initializing application...");
             populateUI();
             attachEventListeners();
 
+            const params = new URLSearchParams(window.location.search);
+            const publicNoteId = params.get('view');
+
             loaderTimeout = setTimeout(() => {
-                console.error("DEBUG: Loading timeout reached.");
-                if(ui.fileListLoader) ui.fileListLoader.innerHTML = `<div class="text-red-500 text-sm p-4 text-left"><strong class="font-bold block mb-2">Error: Loading Timed Out</strong>Check console (F12) for errors and verify Firebase config/rules.</div>`;
+                 if(ui.fileListLoader) ui.fileListLoader.innerHTML = `<div class="text-red-500 text-sm p-4 text-left"><strong class="font-bold block mb-2">Error: Loading Timed Out</strong>Check console (F12) for errors and verify Firebase config/rules.</div>`;
             }, 10000);
 
             if (!firebaseConfig?.apiKey) {
-                console.error("DEBUG: Firebase config is missing!"); clearTimeout(loaderTimeout);
+                clearTimeout(loaderTimeout);
                 document.body.innerHTML = `<div class="p-4 bg-red-100 text-red-800"><strong>Config Missing:</strong> Please paste your Firebase config object into the script.</div>`;
                 return;
             }
@@ -312,26 +485,40 @@
             try {
                 const app = initializeApp(firebaseConfig);
                 db = getFirestore(app); auth = getAuth(app); storage = getStorage(app);
-                console.log("DEBUG: Firebase initialized. Setting up auth listener.");
 
-                onAuthStateChanged(auth, user => {
-                    console.log("DEBUG: onAuthStateChanged event fired.");
-                    if (user) {
-                        console.log("DEBUG: User authenticated. UID:", user.uid);
-                        userId = user.uid;
-                        if(ui.userIdDisplay) ui.userIdDisplay.textContent = userId;
-                        setupFileListener();
-                    } else {
-                        console.log("DEBUG: No user. Attempting anonymous sign-in.");
-                        signInAnonymously(auth).catch(err => {
-                            console.error("DEBUG: Anonymous sign-in failed:", err); clearTimeout(loaderTimeout);
-                            if (ui.fileListLoader) ui.fileListLoader.textContent = "Authentication failed.";
-                        });
+                if (publicNoteId) {
+                    // Public view mode
+                    ui.appContainer.innerHTML = `<main class="w-full h-full"><div id="public-viewer" class="p-4 md:p-8 overflow-y-auto h-full markdown-body">Loading public note...</div></main>`;
+                    const publicViewer = document.getElementById('public-viewer');
+                    try {
+                        const publicDoc = await getDoc(doc(db, getPublicPath(publicNoteId)));
+                        if (publicDoc.exists()) {
+                            publicViewer.innerHTML = marked.parse(publicDoc.data().content);
+                        } else {
+                            publicViewer.innerHTML = `<h2>Not Found</h2><p>This public note does not exist or was removed.</p>`;
+                        }
+                    } catch (e) {
+                        publicViewer.innerHTML = `<h2>Error</h2><p>Could not load the public note.</p>`;
                     }
-                });
+                } else {
+                    // Normal app mode
+                     onAuthStateChanged(auth, user => {
+                        if (user) {
+                            userId = user.uid;
+                            if(ui.userIdDisplay) ui.userIdDisplay.textContent = userId;
+                            setupFileListener();
+                        } else {
+                            signInAnonymously(auth).catch(err => {
+                                clearTimeout(loaderTimeout);
+                                if (ui.fileListLoader) ui.fileListLoader.textContent = "Authentication failed.";
+                            });
+                        }
+                    });
+                }
             } catch (error) {
-                console.error("DEBUG: Firebase initialization failed:", error); clearTimeout(loaderTimeout);
+                clearTimeout(loaderTimeout);
                 if (ui.fileListLoader) ui.fileListLoader.textContent = "App failed to start.";
+                else { document.body.innerHTML = `<div class="p-4 bg-red-100 text-red-800"><strong>App failed to start.</strong> Check console for details.</div>` }
             }
         };
 
