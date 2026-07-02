@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Saurabh | Academic Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #2980b9;
+            --bg-light: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            background-color: #ffffff;
+        }
+
+        header {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .section-content {
+            margin-top: 15px;
+        }
+
+        .data-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .data-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .badge.ongoing { background: #27ae60; }
+        .badge.alumni { background: #7f8c8d; }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            nav a { display: block; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Prof. Saurabh</h1>
+        <div class="subtitle">Assistant Professor | Applied Mathematics & Artificial Intelligence</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#research-group">Research Group</a>
+            <a href="#collaborations">Collaborations</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="section-content">
+            <p>I am an Assistant Professor and Principal Investigator focusing on the intersection of Applied Mathematics and Artificial Intelligence. My research is heavily oriented toward advanced Computer Vision and Deep Learning, with a specific focus on developing and analyzing architectures such as R-CNN, DETR, DINO, and I-JEPA.</p>
+            <p>Through my research group, we aim to leverage high-performance GPU computing to solve complex modeling and visual processing challenges.</p>
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Selected Publications</h2>
+        <div class="section-content">
+            <h3>Tenure Publications</h3>
+            <ul class="data-list">
+                <li><strong>[Paper Title: E.g., Advances in DETR Architecture]</strong><br>
+                Saurabh, [Co-authors]. <em>[Journal/Conference Name]</em>, [Year].</li>
+
+                <li><strong>[Paper Title: E.g., Mathematical Formulations in Deep Learning]</strong><br>
+                Saurabh, [Co-authors]. <em>[Journal/Conference Name]</em>, [Year].</li>
+            </ul>
+
+            <h3>PhD Thesis Research</h3>
+            <ul class="data-list">
+                <li><strong>[Thesis Publication Title]</strong><br>
+                Saurabh, [Advisor/Co-authors]. <em>[Journal/Conference Name]</em>, [Year].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="research-group">
+        <h2>Research Group</h2>
+        <div class="section-content">
+            <h3>PhD Scholars</h3>
+            <ul class="data-list">
+                <li><span class="badge alumni">Graduated</span> <strong>[Student Name]</strong> – <em>[Thesis Title/Research Area]</em></li>
+                <li><span class="badge ongoing">Ongoing</span> <strong>[Student Name]</strong> – <em>[Current Research Focus]</em></li>
+                <li><span class="badge ongoing">Ongoing</span> <strong>[Student Name]</strong> – <em>[Current Research Focus]</em></li>
+            </ul>
+
+            <h3>BTech Research Projects</h3>
+            <ul class="data-list">
+                <li><strong>[Project Group / Student Name]</strong> – <em>[BTech Project Title]</em></li>
+                <li><strong>[Project Group / Student Name]</strong> – <em>[BTech Project Title]</em></li>
+                <li><strong>[Project Group / Student Name]</strong> – <em>[BTech Project Title]</em></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="collaborations">
+        <h2>External Collaborations</h2>
+        <div class="section-content">
+            <ul class="data-list">
+                <li><strong>Indo-French SURE-3D Project</strong><br>
+                Joint research initiative focusing on applied AI and mathematical modeling.</li>
+
+                <li><strong>THT Collaborative Research</strong><br>
+                Hardware and MOA-supported research focusing on remote-access GPU workstation utilization for deep learning workloads.</li>
+
+                <li><strong>[Third Organization/University]</strong><br>
+                [Brief description of the collaboration or joint grant.]</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Prof. Saurabh. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
