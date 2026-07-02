@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Saurabh Shigwan | Computer Science Professor| Shiv Nadar IOE Delhi-NCR</title>
+    <meta name="description" content="Academic homepage of Dr. Saurabh Shigwan, Assistant Professor of Computer Science and Engineering at Shiv Nadar Institute of Eminence. Research in medical image analysis, deep learning, diffusion MRI, graph neural networks, and open-set recognition.">
+    <title>Dr. Saurabh Shigwan | Computer Science &amp; Engineering | Shiv Nadar Institute of Eminence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -54,843 +55,1177 @@
             width: 100%;
         }
         a {
-        color: #0066cc; /* blue color */
-        text-decoration: underline;
+            color: #0066cc; /* blue color */
+            text-decoration: underline;
         }
-
         a:hover {
-          color: #004080;
+            color: #004080;
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- Header/Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-blue-600">Dr. Saurabh Janardan Shigwan</div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 active">Home</a>
-                    <a href="#research" class="nav-link text-gray-700 hover:text-blue-600">Research</a>
-                    <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600">Publications</a>
-                    <a href="#teaching" class="nav-link text-gray-700 hover:text-blue-600">Teaching</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
-                </nav>
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+
+<!--
+==================================================================================
+  HOW TO EDIT THIS PAGE  (read me first, you do NOT need to know how to code)
+==================================================================================
+  The page is split into clearly labelled SECTIONS. Each begins and ends with a
+  marker such as:  == SECTION: RESEARCH ==  and  == END SECTION: RESEARCH ==
+
+  To change text, just find the words and type over them.
+
+  To ADD a new item (a publication, a student, a course, a collaborator, etc.),
+  every list has a commented block labelled "TEMPLATE" right above it. Copy the
+  example block, paste it directly below the last real item, then edit the text.
+  Keep the surrounding div tags intact so the layout stays identical.
+
+  Links use this pattern:  the-address  inside  href="..."
+  PDFs you upload next to this file are linked as:   href="myfile.pdf"
+
+  Sections, in order:
+     1. NAVIGATION BAR
+     2. HERO (intro)
+     3. ABOUT (education, experience, funding)
+     4. RESEARCH (interests + current projects)
+     5. RESEARCH GROUP (PhD + B.Tech students)   <- recruiting / student highlights
+     6. PUBLICATIONS
+     7. COLLABORATIONS
+     8. TEACHING (courses taught + advising)
+     9. CONTACT
+    10. FOOTER
+==================================================================================
+-->
+
+<!-- == SECTION: NAVIGATION BAR == -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <a href="#home" class="text-xl md:text-2xl font-bold text-blue-600 no-underline">Dr. Saurabh Janardan Shigwan</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 no-underline">About</a>
+                <a href="#research" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Research</a>
+                <a href="#group" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Group</a>
+                <a href="#publications" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Publications</a>
+                <a href="#collaborations" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Collaborations</a>
+                <a href="#teaching" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Teaching</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 no-underline">Contact</a>
+            </nav>
+            <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Open menu">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="md:hidden hidden mt-4" id="mobile-menu">
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">About</a>
+            <a href="#research" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Research</a>
+            <a href="#group" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Group</a>
+            <a href="#publications" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Publications</a>
+            <a href="#collaborations" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Collaborations</a>
+            <a href="#teaching" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Teaching</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 no-underline">Contact</a>
+        </div>
+    </div>
+</header>
+<!-- == END SECTION: NAVIGATION BAR == -->
+
+
+<!-- == SECTION: HERO (intro) == -->
+<section id="home" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                <!-- To change the photo: replace the file named below (keep the same file name, or update it here). -->
+                <img src="Dr_Saurabh_Shigwan_picture.jpg" alt="Dr. Saurabh Shigwan" class="profile-image w-64 h-64 object-cover">
             </div>
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#research" class="block py-2 text-gray-700 hover:text-blue-600">Research</a>
-                <a href="#publications" class="block py-2 text-gray-700 hover:text-blue-600">Publications</a>
-                <a href="#teaching" class="block py-2 text-gray-700 hover:text-blue-600">Teaching</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            <div class="md:w-2/3 md:pl-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">Dr. Saurabh Shigwan</h1>
+                <h2 class="text-2xl md:text-3xl text-blue-600 mb-1">Assistant Professor, Computer Science &amp; Engineering</h2>
+                <p class="text-lg text-gray-600 mb-6">Shiv Nadar Institute of Eminence (Deemed to be University), Greater Noida</p>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    I work at the intersection of <strong>medical image analysis</strong> and
+                    <strong>deep learning</strong>. My group develops learning-based methods for reconstructing
+                    diffusion tensor imaging (DTI) from sparse diffusion MRI, sparse-view CT reconstruction,
+                    unsupervised segmentation with graph neural networks (GNNs), and open-set recognition for
+                    medical imaging. Before joining Shiv Nadar IoE, I was a pre-doctoral fellow at the Psychiatry
+                    Neuroimaging Laboratory, Harvard Medical School, and completed my Ph.D. at IIT Bombay.
+                </p>
+
+                <!-- Prospective-students callout (helps attract research students). Edit or remove freely. -->
+                <div class="bg-white/70 border-l-4 border-blue-600 rounded-r-lg px-5 py-4 mb-6">
+                    <p class="text-gray-700">
+                        <span class="font-semibold text-gray-800">Prospective students:</span>
+                        I welcome motivated Ph.D., M.Tech., and B.Tech. students interested in medical imaging,
+                        deep learning, and computer vision. See the
+                        <a href="#group" class="text-blue-600 font-medium no-underline hover:underline">Research Group</a>
+                        section, then reach out by
+                        <a href="#contact" class="text-blue-600 font-medium no-underline hover:underline">email</a>.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 no-underline">
+                        Contact Me
+                    </a>
+                    <a href="cv_saurabh.pdf" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300 no-underline" target="_blank">
+                        Download CV
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300 no-underline" target="_blank">
+                        Google Scholar
+                    </a>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+</section>
+<!-- == END SECTION: HERO == -->
 
-    <!-- Hero Section -->
-    <section id="home" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
-                    <img src="Dr_Saurabh_Shigwan_picture.jpg" alt="Profile Image" class="profile-image w-64 h-64 object-cover">
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Dr. Saurabh Shigwan</h1>
-                    <h2 class="text-2xl md:text-3xl text-blue-600 mb-6">Assistant Professor of Computer Science</h2>
-                    <h2 class="text-2xl md:text-3xl text-blue-600 mb-6">Shiv Nadar Institute of Eminence</h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Welcome to my academic webpage. I am an Assistant Professor in the Department of Computer Science at Shiv Nadar Institute of Eminence Deemed to be University. I am working on DTI reconstruction from sparse Diffusion MRI, Deep learning based CT reconstruction from Sparse sinograms, Unsupervised segmentation of medical images using GNNs. I generally teach Digital Image Processing and Deep Learning for Visual Computing courses. I have taught CS core courses such as Discrete Mathematics and Data Structures.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                            Contact Me
-                        </a>
-                        <a href="resume.pdf" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300" target="_blank">
-                            Download Resume
-                        </a>
-                        <a href="cv_saurabh.pdf" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300" target="_blank">
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Research Section -->
-    <section id="research" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Research Interests</h2>
-            <div class="grid md:grid-cols-3 gap-8 mt-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-brain text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Sparse Diffusion MRI reconstruction and Tractography</h3>
-                    <p class="text-gray-600">
-                      This research focuses on reconstructing high-quality brain connectivity from sparsely sampled diffusion-weighted imaging (DWI) data using deep learning techniques. Traditional dMRI acquisition requires dense sampling across multiple diffusion directions, making it time-consuming and less feasible in clinical settings. Our work significantly reduces scan time while preserving accuracy, enhancing the efficiency and scalability of brain imaging pipelines.
+<!-- == SECTION: ABOUT (education, experience, funding) == -->
+<section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">About</h2>
 
-                      We developed SwinDTI, a transformer-based neural network that estimates diffusion tensors and enables reliable fiber tractography from limited DWI inputs. Unlike conventional model-based methods (e.g., Unscented Kalman Filters), our pipeline uses data-driven neural models to infer fiber directions, allowing for end-to-end learning and better generalization across subjects and scanning conditions.
-                      <p>
-                      Key highlights:</p>
-                      <p class="text-gray-600">
-                      Enables fast and accurate tractography from sparse DWI, reducing burden on both scanners and patients.
+        <div class="grid md:grid-cols-2 gap-12 mt-8">
 
-                      Supports early diagnosis of neurodegenerative diseases such as Alzheimer’s and Frontotemporal Dementia.
-
-                      Integrates deep neural networks to replace hand-crafted models for fiber orientation estimation.
-
-                      Developed in collaboration with Shiv Nadar IoE and Harvard Medical School researchers.
-                      </p>
-                      <p>
-                      Collaborator:
-                      <a href="https://scholar.google.com/citations?user=Kb4ah6oAAAAJ&hl=en" target="_blank">Dr. Rajeev Kumar </a>(Shiv Nadar IoE)
-                    </p>
-                     <p>
-                      Students:
-                      <a href="https://scholar.google.com/citations?user=lZ3bfwkAAAAJ&hl=en" target="_blank">Abhishek Tiwari</a>(PhD, Graduated in 2024), <a href="https://reachananya-github-io.vercel.app/" target="_blank">Ananya Singhal</a>(BTech, Graduated in 2024)
-                     </p>
-                     <p>
-                       PhD Thesis of Abhishek: <a href="PhD_Thesis_Abhishek.pdf" target="_blank">Deep Learning Based Framework for DTI Parameters
-                          Estimation and Analysis for Sparse Diffusion MRI data </a>
-                     </p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-brain text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Unsupervised Image Segmentation using Graph Neural Network</h3>
-                    <p class="text-gray-600">
-                      This research explores a novel approach to image segmentation by leveraging the structural strengths of Graph Neural Networks (GNNs) in an unsupervised setting, specifically targeting both medical imaging and natural image datasets.
-
-                      We proposed UnSegMedGAT and UnSeGArmaNet, two state-of-the-art GNN-based models that operate without pixel-level labels. Our architecture constructs a graph over image superpixels, where nodes represent regions and edges encode spatial and appearance similarities. The segmentation is driven by a modularity-based loss function that encourages the discovery of coherent and semantically meaningful regions within the image.
-                      <p>
-                      Key highlights: </p>
-                      <p class="text-gray-600">
-                      No need for labeled data, enabling applications in domains where annotations are scarce or expensive (e.g., medical imaging).
-
-                      Incorporates attention mechanisms and graph pooling to capture global and local context.
-
-                      Outperforms baseline clustering and GCN-based models on standard segmentation benchmarks.
-
-                      Demonstrated strong generalization across datasets (e.g., medical scans, PASCAL VOC, COCO sub-samples).
-                      </p>
-                      <p>
-                      Collaborators:
-                      <a href="https://nitinnazkani.github.io/nitinnazkani/" target="_blank">Dr. Nitin Kumar</a>, <a href="https://scholar.google.com/citations?user=2nMgticAAAAJ&hl=en" target="_blank">Dr. Snehasis Mukharjee</a>(Shiv Nadar University)
-                      </p>
-                      <p>
-                      Students:
-                      <a href="https://github.com/ksgr5566" target="_blank">Kovvuri Sai Gopal Reddy</a>(BTech, Graduated in 2024), <a href="https://www.saranbluri.com/" target="_blank">Bodduluri Saran</a>(BTech, Graduated in 2024), <a href="https://github.com/mudit-adityaja" target="_blank">Mudit Adityaja</a>(BTech, Graduated in 2024)
-                      </p>
-                    </p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-brain text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Shape Analysis on Anatomical Changes of Brain Subcortical Structures in Neurodegenerative Diseases</h3>
-                    <p class="text-gray-600">
-                      During my Ph.D. research, I focused on developing advanced shape analysis methods to study morphological
-                      changes in subcortical brain structures associated with neurodegenerative diseases such as Alzheimer’s and Parkinson’s.
-                      I recognized that traditional volumetric analyses often miss subtle yet clinically meaningful deformations, so I concentrated on
-                      capturing fine-grained geometric variations in regions like the hippocampus, amygdala, caudate, and thalamus.
-                      One of my key contributions was designing a hierarchical generative modeling framework in Riemannian shape space, utilizing a Monte Carlo
-                      Expectation-Maximization (EM) algorithm. This framework allowed for statistically robust hypothesis testing on shape variations,
-                      enabling more precise detection of disease-specific morphological patterns. I presented this work at the Medical Image Computing and
-                      Computer Assisted Intervention (MICCAI) conference in 2016.
-                      Later in my research, I explored the use of deep neural networks guided by shape priors to improve object segmentation performance—especially
-                      when working with limited or noisy training datasets. This approach proved effective in segmenting subcortical brain structures from MRI scans
-                      and contributed to more accurate assessments of disease progression. I presented this work at the IEEE International Symposium on
-                      Biomedical Imaging (ISBI) in 2020.
-                      Through this line of work, I aimed to develop more sensitive and reliable imaging biomarkers for the early detection and
-                      monitoring of neurodegenerative disorders. By combining statistical modeling with deep learning techniques, my research contributes
-                      to improving the clinical utility and interpretability of neuroimaging pipelines.
-                    </p>
-                    <p>
-                      My Thesis: <a href="Saurabh_Shigwan_PhD_thesis.pdf" target="_blank">Hierarchical Pointset-Based Statistical Shape Modeling
-                        and Applications</a>
-                    </p>
-                    <p>
-                      <a href="Defense_Presentation_SaurabhShigwan.pdf" target="_blank">PhD Defense Presentation</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- <div class="mt-16">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Projects</h3>
+            <!-- Education -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Education</h3>
+                <!--
+                  TEMPLATE — copy this block to add an education entry:
+                  <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <p class="text-sm text-blue-600 font-medium">YEARS</p>
+                    <h4 class="text-lg font-medium text-gray-800">DEGREE, FIELD</h4>
+                    <p class="text-gray-600">INSTITUTION</p>
+                  </div>
+                -->
                 <div class="space-y-6">
                     <div class="border-l-4 border-blue-600 pl-6 py-2">
-                        <h4 class="text-xl font-medium text-gray-800">Project Title 1</h4>
-                        <p class="text-gray-600 mt-2">Brief description of the project, funding source (if any), and your role. Mention any collaborators if relevant.</p>
+                        <p class="text-sm text-blue-600 font-medium">2014 &ndash; 2020</p>
+                        <h4 class="text-lg font-medium text-gray-800">Ph.D., Medical Image Processing</h4>
+                        <p class="text-gray-600">Indian Institute of Technology Bombay (IIT Bombay)</p>
+                        <p class="text-gray-600 mt-1 text-sm">
+                            Thesis: &ldquo;Hierarchical Pointset-Based Statistical Shape Modeling and Applications.&rdquo;
+                            Advisor: Prof. Suyash P. Awate.
+                        </p>
+                        <p class="mt-2 text-sm">
+                            <a href="Saurabh_Shigwan_PhD_thesis.pdf" target="_blank" class="text-blue-600 no-underline hover:underline">Thesis (PDF)</a>
+                            <span class="text-gray-300">&middot;</span>
+                            <a href="Defense_Presentation_SaurabhShigwan.pdf" target="_blank" class="text-blue-600 no-underline hover:underline">Defense slides</a>
+                        </p>
                     </div>
                     <div class="border-l-4 border-blue-600 pl-6 py-2">
-                        <h4 class="text-xl font-medium text-gray-800">Project Title 2</h4>
-                        <p class="text-gray-600 mt-2">Brief description of the project, funding source (if any), and your role. Mention any collaborators if relevant.</p>
+                        <p class="text-sm text-blue-600 font-medium">2012 &ndash; 2014</p>
+                        <h4 class="text-lg font-medium text-gray-800">M.Tech., Computer Science</h4>
+                        <p class="text-gray-600">Indian Statistical Institute (ISI), Kolkata</p>
+                    </div>
+                    <div class="border-l-4 border-blue-600 pl-6 py-2">
+                        <p class="text-sm text-blue-600 font-medium">2007 &ndash; 2011</p>
+                        <h4 class="text-lg font-medium text-gray-800">B.E., Computer Engineering</h4>
+                        <p class="text-gray-600">University of Mumbai</p>
                     </div>
                 </div>
-            </div> -->
-            <div class="mt-16">
-              <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Projects</h3>
-              <div class="space-y-6">
+            </div>
 
-                <!-- Project 1 -->
-                <div class="border-l-4 border-blue-600 pl-6 py-2">
-                  <h4 class="text-xl font-medium text-gray-800">Quantitative Measure Estimation from Sparse DWI using Graph Neural Network(GNN)</h4>
-                  <p class="text-gray-600 mt-2">
-                    This project focuses on estimating principal components of diffusion tensors from sparsely sampled Diffusion Weighted Imaging (DWI) data using GNN based deep learning models. The aim is to enhance the efficiency of diffusion MRI analysis, facilitating early diagnosis of neurodegenerative diseases. Collaborating with Dr. Nitin Kumar (SNU), I am supervising student Tejaswi Abburi and Ananya Singhal.
-                  </p>
+            <!-- Experience -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Experience</h3>
+                <!--
+                  TEMPLATE — copy this block to add an experience entry:
+                  <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <p class="text-sm text-blue-600 font-medium">YEARS</p>
+                    <h4 class="text-lg font-medium text-gray-800">ROLE</h4>
+                    <p class="text-gray-600">INSTITUTION</p>
+                  </div>
+                -->
+                <div class="space-y-6">
+                    <div class="border-l-4 border-blue-600 pl-6 py-2">
+                        <p class="text-sm text-blue-600 font-medium">2021 &ndash; present</p>
+                        <h4 class="text-lg font-medium text-gray-800">Assistant Professor</h4>
+                        <p class="text-gray-600">Dept. of Computer Science &amp; Engineering, Shiv Nadar Institute of Eminence, Greater Noida</p>
+                    </div>
+                    <div class="border-l-4 border-blue-600 pl-6 py-2">
+                        <p class="text-sm text-blue-600 font-medium">2019 &ndash; 2020</p>
+                        <h4 class="text-lg font-medium text-gray-800">Pre-doctoral Fellow</h4>
+                        <p class="text-gray-600">Psychiatry Neuroimaging Laboratory (PNL), Harvard Medical School, Boston, USA</p>
+                    </div>
+                    <div class="border-l-4 border-blue-600 pl-6 py-2">
+                        <p class="text-sm text-blue-600 font-medium">2014 &ndash; 2020</p>
+                        <h4 class="text-lg font-medium text-gray-800">Ph.D. Candidate</h4>
+                        <p class="text-gray-600">Dept. of Computer Science &amp; Engineering, IIT Bombay</p>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Project 2 -->
-                <div class="border-l-4 border-blue-600 pl-6 py-2">
-                  <h4 class="text-xl font-medium text-gray-800">Unsupervised Image Segmentation using Graph Neural Networks</h4>
-                  <p class="text-gray-600 mt-2">
-                    In this project, we design a state-of-the-art method for unsupervised image segmentation leveraging Graph Neural Networks (GNNs) and modularity loss. The approach has been tested on multiple computer vision and medical image datasets, showing competitive performance. Collaborators include Dr. Nitin Kumar (SNU), with student researchers Arnav Aditya.
-                  </p>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="border-l-4 border-blue-600 pl-6 py-2">
-                  <h4 class="text-xl font-medium text-gray-800">Unmasking Reality: Intrinsic Image Decomposition</h4>
-                  <p class="text-gray-600 mt-2">
-                    Discover how we separate the visual world into its fundamental components—shading and reflectance—using unsupervised learning. This project leverages classic and deep methods to see beyond raw pixels.
-                    Collaborators include Dr. Sumit Shekhar (SNU), with student researchers Arnav Jalan.
-                  </p>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="border-l-4 border-blue-600 pl-6 py-2">
-                  <h4 class="text-xl font-medium text-gray-800">Analysis of Spine Bone for Fractures</h4>
-                  <p class="text-gray-600 mt-2">
-                    This project investigates reconstruction techniques for spine bone imaging, focusing on sparse cone beam sinograms using geometry-aware deep neural networks. The study involves traditional parallel beam, fan beam 2D reconstruction, and cone beam reconstruction using the ASTRA toolbox. Collaborating with Dr. Sumit Shekhar (SNU).
-                  </p>
-                </div>
-
+        <!-- Funding & Grants -->
+        <div class="mt-14">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Funding &amp; Grants</h3>
+            <!--
+              TEMPLATE — copy this block to add a grant:
+              <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <p class="text-sm text-blue-600 font-medium">YEARS · AMOUNT</p>
+                <h4 class="text-lg font-semibold text-gray-800 mt-1">PROJECT TITLE</h4>
+                <p class="text-gray-600 mt-1">FUNDER. Role: YOUR ROLE (PI: NAME).</p>
               </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Publications</h2>
-
-            <div class="mt-8">
-                <div class="flex space-x-4 mb-6">
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium" id="all-pubs">All</button>
-                    <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="journal-pubs">Journal Articles</button>
-                    <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="conference-pubs">Conference Papers</button>
-                    <!-- <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="book-chapters">Book Chapters</button> -->
-                </div>
-
-                <div class="space-y-6" id="publications-list">
-                    <!-- Journal Articles -->
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm journal">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            SwinDTI: Swin Transformer-based Generalized Fast Estimation of Diffusion Tensor Parameters from Sparse Data
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Abhishek Tiwari, Rajeev Kumar Singh, Saurabh J. Shigwan, Neural Computing and Applications, Springer, 2023
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm journal">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            Validation of Deep Learning Techniques for Quality Augmentation in Diffusion MRI for Clinical Studies
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Abhishek Tiwari, Saurabh J. Shigwan, Rajeev Kumar Singh, NeuroImage: Clinical, Elsevier, Q1 SCI Journal, Impact Factor = 4.2
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                          </div>
-                        </div>
-                      </div>
-                    <!-- Conference Papers -->
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            UnSegMedGAT: Unsupervised Medical Image Segmentation using Graph Attention Networks Clustering
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Mudit Adityaja, Saurabh J. Shigwan, Nitin Kumar, 22nd IEEE International Symposium on Biomedical Imaging (ISBI), 2025
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            UnSeGArmaNet: Unsupervised Image Segmentation using Graph Neural Networks with Convolutional ARMA Filters
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Kovvuri Sai Gopal Reddy, Bodduluri Saran, Mudit Adityaja, Saurabh J. Shigwan, Nitin Kumar, Snehasis Mukharjee, 35th British Machine Vision Conference (BMVC), 2024
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            Early Diagnosis of Alzheimer through Swin-Transformer-Based Deep Learning Framework using Sparse Diffusion Measures
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Abhishek Tiwari, Ananya Singhal, Saurabh J. Shigwan, Rajeev Kumar Singh, The 15th Asian Conference on Machine Learning (ACML), 2023
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                        <div>
-                          <h3 class="text-xl font-semibold text-gray-800">
-                            Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia
-                          </h3>
-                          <p class="text-gray-600 mt-1">
-                            Abhishek Tiwari, Ananya Singhal, Saurabh J. Shigwan, Rajeev Kumar Singh, IEEE/CVF International Conference on Computer Vision, BioImage Computing Workshop, ICCV, 2023
-                          </p>
-                        </div>
-                        <div class="mt-4 md:mt-0 flex space-x-3">
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-file-pdf"></i> PDF
-                          </a>
-                          <a href="#" class="text-blue-600 hover:text-blue-800">
-                            <i class="fas fa-link"></i> DOI
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Book Chapters -->
-                    <!-- <div class="publication-card bg-white p-6 rounded-lg shadow-sm book-chapter">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">Title of Book Chapter</h3>
-                                <p class="text-gray-600 mt-1">Authors, Book Title, Publisher, Pages, Year</p>
-                            </div>
-                            <div class="mt-4 md:mt-0 flex space-x-3">
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-file-pdf"></i> PDF</a>
-                                <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link"></i> DOI</a>
-                            </div>
-                        </div>
-                    </div>   -->
-
-                    <!-- Add more publications as needed -->
-                    <div id="more-publications" class="space-y-6 hidden">
-                      <!-- Dummy Publication -->
-                      <!-- <div class="publication-card bg-white p-6 rounded-lg shadow-sm journal">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 class="text-xl font-semibold text-gray-800">
-                              Dummy Publication: A Placeholder Example for “View All”
-                            </h3>
-                            <p class="text-gray-600 mt-1">
-                              John Doe, Jane Smith, Journal of Placeholder Studies, 2025
-                            </p>
-                          </div>
-                          <div class="mt-4 md:mt-0 flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-link"></i> DOI
-                            </a>
-                          </div>
-                        </div>
-                      </div> -->
-                      <!-- View All Publications START -->
-                      <!-- 1) ISBI-2020 -->
-                      <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 class="text-xl font-semibold text-gray-800">
-                              Object Segmentation With Deep Neural Nets Coupled with a Shape Prior, When Learning from a Training Set of Limited Quality and Small Size
-                            </h3>
-                            <p class="text-gray-600 mt-1">
-                              Saurabh J. Shigwan, Akshya Gailkwad, Suyash P. Awate, to appear in International Symposium on Biomedical Imaging (ISBI-2020), Iowa City, USA
-                            </p>
-                          </div>
-                          <div class="mt-4 md:mt-0 flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-link"></i> DOI
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- 2) MICCAI-2016 -->
-                      <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 class="text-xl font-semibold text-gray-800">
-                              Hierarchical Generative Modeling and Monte-Carlo EM in Riemannian Shape Space for Hypothesis Testing
-                            </h3>
-                            <p class="text-gray-600 mt-1">
-                              Saurabh J. Shigwan, Suyash P. Awate, appeared in Medical Image Computing and Computer Assisted Intervention (MICCAI-2016), Athens, Greece
-                            </p>
-                          </div>
-                          <div class="mt-4 md:mt-0 flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-link"></i> DOI
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- 3) MICCAI-2015 -->
-                      <div class="publication-card bg-white p-6 rounded-lg shadow-sm conference">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                          <div>
-                            <h3 class="text-xl font-semibold text-gray-800">
-                              A Statistical Model for Smooth Shapes in Kendall Shape Space
-                            </h3>
-                            <p class="text-gray-600 mt-1">
-                              Akshya Gailkwad, Saurabh J. Shigwan, Suyash P. Awate, appeared in Medical Image Computing and Computer Assisted Intervention (MICCAI-2015), Munich, Germany
-                            </p>
-                          </div>
-                          <div class="mt-4 md:mt-0 flex space-x-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800">
-                              <i class="fas fa-link"></i> DOI
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- View All Publications END -->
-                    </div>
-                    <!--  -->
-                </div>
-
-                <!-- <div class="mt-8 text-center">
-                    <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                        View All Publications
-                    </a>
-                </div> -->
-                <div class="mt-8 text-center">
-                    <a href="#" id="view-all-btn" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                      View All Publications
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <!-- <script>
-            document.getElementById('view-all-btn').addEventListener('click', function(e) {
-              e.preventDefault();
-              document.getElementById('more-publications').classList.remove('hidden');
-              this.classList.add('hidden');
-            });
-          </script>         -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              var btn = document.getElementById('view-all-btn');
-              var more = document.getElementById('more-publications');
-              if (btn && more) {
-                btn.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  more.classList.remove('hidden');
-                  btn.classList.add('hidden');
-                });
-              }
-            });
-          </script>
-    </section>
-
-    <!-- Teaching Section -->
-    <section id="teaching" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Teaching</h2>
-
-            <div class="mt-8">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Courses</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h4 class="text-xl font-medium text-gray-800">CSD 102: Data Structures</h4>
-                        <p class="text-gray-600 mt-2">Undergraduate course covering fundamental data structure concepts using C language.</p>
-                        <div class="mt-4">
-                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link mr-2"></i>Course Website</a>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                        <h4 class="text-xl font-medium text-gray-800">CSD 212: Digital Image Processing</h4>
-                        <p class="text-gray-600 mt-2">Undergraduate course covering digital image processing basics in Python</p>
-                        <p> Also taught in Spring 2021, Fall 2022, Fall 2023,Spring 2024</p>
-                        <div class="mt-4">
-                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-link mr-2"></i>Course Website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Past Courses</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CSD 205: Discrete Mathematics</h4>
-                        <p class="text-gray-600 text-sm mt-1">Fall 2021</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CSD 456: Deep Learning</h4>
-                        <p class="text-gray-600 text-sm mt-1">Fall 2024</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="text-lg font-medium text-gray-800">CSD 210: Probability and Statistics</h4>
-                        <p class="text-gray-600 text-sm mt-1">Spring 2022, Spring 2023</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Student Advising</h3>
+            -->
+            <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 class="text-xl font-medium text-gray-800">Current PhD Students</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700">Tejaswi Abburi (Expected graduation: 2028) - Unsupervised Crossing Fiber detection in Multishell Diffusion MRI using Neural network</li>
-                        <li class="text-gray-700">Vishal Chaudhari (Expected graduation: 2028) - Latent Diffusion Model for Medical Image Analysis</li>
-                    </ul>
-
-                    <h4 class="text-xl font-medium text-gray-800 mt-6">Undergraduate Research Assistants</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700">Arnav Jalan (Expected graduation: 2026) - Unmasking Reality: Intrinsic Image Decomposition</li>
-                    </ul>
-
-                    <!-- <h4 class="text-xl font-medium text-gray-800 mt-6">Undergraduate Research Assistants</h4>
-                    <ul class="list-disc pl-6 mt-4 space-y-2">
-                        <li class="text-gray-700"> (Year) - Project description</li>
-                    </ul> -->
+                    <p class="text-sm text-blue-600 font-medium">2026 &ndash; present &middot; INR 41 Lakh</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mt-1">Underwater Video Restoration and 3D Reconstruction for Marine Ecological Conservation</h4>
+                    <p class="text-gray-600 mt-1">The Habitat Trust (India). Role: Co-PI (PI: Dr. Sumit Shekhar).</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <p class="text-sm text-blue-600 font-medium">Pre-doctoral fellowship &middot; USD 16,000</p>
+                    <h4 class="text-lg font-semibold text-gray-800 mt-1">Brain Tractography using Diffusion MRI</h4>
+                    <p class="text-gray-600 mt-1">Brigham and Women's Hospital, Boston, USA. Role: Pre-doctoral Fellow (PI: Prof. Yogesh Rathi).</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<!-- == END SECTION: ABOUT == -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-800 section-title">Contact</h2>
 
-            <div class="mt-8 grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get In Touch</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-university text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">C219F</h4>
-                                <p class="text-gray-600 mt-1">
-                                    Department of Computer Science<br>
-                                    Shiv Nadar Institute of Eminence Deemed to be University<br>
-                                    C-Block, Room C219F<br>
-                                    NH91, Tehsil Dadri<br>
-                                    Gautam Buddha Nagar UP-201314 <bt>
-                                    India
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-envelope text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Email</h4>
-                                <p class="text-gray-600 mt-1">
-                                    <a href="mailto:saurabh.shigwan@snu.edu.in" class="hover:text-blue-600">saurabh.shigwan@snu.edu.in</a>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-phone-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Phone</h4>
-                                <p class="text-gray-600 mt-1">
-                                    <a href="tel:+1-XXX-XXX-XXXX" class="hover:text-blue-600">+1 (XXX) XXX-XXXX</a>
-                                </p>
-                            </div>
-                        </div> -->
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mr-4 mt-1">
-                                <i class="fas fa-clock text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-gray-800">Office Hours</h4>
-                                <p class="text-gray-600 mt-1">
-                                    Monday: 3:00 PM - 5:00 PM<br>
-                                    Wednesday: 3:00 PM - 5:00 PM<br>
-                                    Or by appointment
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+<!-- == SECTION: RESEARCH (interests + current projects) == -->
+<section id="research" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Research Interests</h2>
 
-                    <div class="mt-8">
-                        <h4 class="text-lg font-medium text-gray-800 mb-4">Connect With Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/saurabhshigwan/" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/saurabhcsesnu" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300">
-                                <i class="fab fa-google-scholar"></i>
-                            </a>
-                            <a href="https://www.researchgate.net/profile/Saurabh-Shigwan" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition duration-300">
-                                <i class="fab fa-researchgate"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!--
+          RESEARCH INTEREST CARDS
+          TEMPLATE — copy the block between == CARD == markers to add a new interest.
+        -->
+        <div class="grid md:grid-cols-3 gap-8 mt-8">
 
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send a Message</h3>
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
+            <!-- == CARD: Diffusion MRI == -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="text-blue-600 mb-4"><i class="fas fa-brain text-4xl"></i></div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Sparse Diffusion MRI Reconstruction &amp; Tractography</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    We reconstruct high-quality brain connectivity from sparsely sampled diffusion-weighted
+                    imaging (DWI) using deep learning. Conventional dMRI needs dense sampling across many
+                    diffusion directions, which is slow and often impractical in the clinic. Our methods,
+                    including <strong>SwinDTI</strong> and ARMA-filter graph networks, cut scan time substantially
+                    while preserving accuracy, and support the early diagnosis of Alzheimer's disease and
+                    frontotemporal dementia.
+                </p>
             </div>
-        </div>
-    </section>
+            <!-- == END CARD == -->
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Dr. Saurabh Shigwan</h3 >
-                    <p class="text-gray-400">
-                        Assistant Professor<br>
-                        Department of Computer Science<br>
-                        Shiv Nadar Institute of Eminence Deemed to be University
+            <!-- == CARD: GNN Segmentation == -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="text-blue-600 mb-4"><i class="fas fa-project-diagram text-4xl"></i></div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Unsupervised Image Segmentation with Graph Neural Networks</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    We segment images without pixel-level labels by exploiting the structure of Graph Neural
+                    Networks (GNNs). Our models <strong>UnSegMedGAT</strong> and <strong>UnSeGArmaNet</strong>
+                    build a graph over image superpixels and are driven by a modularity-based loss that discovers
+                    coherent, semantically meaningful regions, generalising across medical scans and natural-image
+                    benchmarks where annotations are scarce or costly.
+                </p>
+            </div>
+            <!-- == END CARD == -->
+
+            <!-- == CARD: Open-Set Recognition == -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                <div class="text-blue-600 mb-4"><i class="fas fa-diagram-project text-4xl"></i></div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Open-Set Recognition &amp; Uncertainty in Medical Imaging</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Clinical models must recognise when an input falls outside their training distribution. We
+                    develop uncertainty-aware, open-set classifiers, such as <strong>UCDSC</strong>, a deep
+                    simplex classifier for medical image datasets, so that models can flag unknown classes
+                    reliably rather than making confident but wrong predictions.
+                </p>
+            </div>
+            <!-- == END CARD == -->
+
+        </div>
+
+        <!-- CURRENT PROJECTS -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Projects</h3>
+
+            <!--
+              TEMPLATE — copy this block to add a new project:
+              <div class="border-l-4 border-blue-600 pl-6 py-2">
+                <h4 class="text-xl font-medium text-gray-800">PROJECT TITLE</h4>
+                <p class="text-gray-600 mt-2">SHORT DESCRIPTION. Collaborators: NAME (INSTITUTION). Students: NAME.</p>
+              </div>
+            -->
+            <div class="space-y-6">
+
+                <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <h4 class="text-xl font-medium text-gray-800">Neurodegenerative Dementia Classification from Sparse Diffusion MRI</h4>
+                    <p class="text-gray-600 mt-2">
+                        ARMA-convolutional graph neural networks (ARMARRecon) for classifying neurodegenerative
+                        dementias from sparse diffusion measures. Collaborator: Dr. Nitin Kumar (SNIOE).
+                        Students: Tejaswi Abburi, Ananya Singhal.
                     </p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#research" class="text-gray-400 hover:text-white transition duration-300">Research</a></li>
-                        <li><a href="#publications" class="text-gray-400 hover:text-white transition duration-300">Publications</a></li>
-                        <li><a href="#teaching" class="text-gray-400 hover:text-white transition duration-300">Teaching</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
-                    </ul>
+
+                <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <h4 class="text-xl font-medium text-gray-800">Open-Set Recognition for Medical Images and Computer Vision</h4>
+                    <p class="text-gray-600 mt-2">
+                        Uncertainty-aware open-set classifiers (UCDSC) that reject out-of-distribution inputs.
+                        Collaborator: Dr. Nitin Kumar (SNIOE). Students: Arnav Aditya, Vishal Chaudhari.
+                    </p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">University Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://snu.edu.in/departments/department-of-computer-science-and-engineering/" class="text-gray-400 hover:text-white transition duration-300">Department Website</a></li>
-                        <li><a href="https://snu.edu.in/home/" class="text-gray-400 hover:text-white transition duration-300">University Homepage</a></li>
-                        <li><a href="https://snu.edu.in/faculty/" class="text-gray-400 hover:text-white transition duration-300">Faculty Directory</a></li>
-                        <li><a href="https://snu.edu.in/home/mandatory-disclosure/academic-calendar-all/" class="text-gray-400 hover:text-white transition duration-300">Academic Calendar</a></li>
-                    </ul>
+
+                <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <h4 class="text-xl font-medium text-gray-800">Sparse-View CT Reconstruction and Efficient Segmentation</h4>
+                    <p class="text-gray-600 mt-2">
+                        Geometry-aware deep networks for sparse-view CT reconstruction, and computationally
+                        efficient residual U-Nets for spine CT segmentation (SpineContextResUNet).
+                        Students: K. Nithurshen, Apaar Raina, Siddharth Reddy.
+                    </p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Research Profiles</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" class="text-gray-400 hover:text-white transition duration-300">Google Scholar</a></li>
-                        <li><a href="https://www.researchgate.net/profile/Saurabh-Shigwan" class="text-gray-400 hover:text-white transition duration-300">ResearchGate</a></li>
-                        <li><a href="https://orcid.org/0000-0001-6159-7961" class="text-gray-400 hover:text-white transition duration-300">ORCID</a></li>
-                        <li><a href="https://dblp.org/pid/168/5573.html" class="text-gray-400 hover:text-white transition duration-300">DBLP</a></li>
-                    </ul>
+
+                <div class="border-l-4 border-blue-600 pl-6 py-2">
+                    <h4 class="text-xl font-medium text-gray-800">Underwater Video Restoration and 3D Reconstruction</h4>
+                    <p class="text-gray-600 mt-2">
+                        3D reconstruction from noise-prone video for marine ecological conservation, funded by
+                        The Habitat Trust. Co-PI with Dr. Sumit Shekhar (SNIOE). Student: Diksha Dhillon.
+                    </p>
                 </div>
-            </div>
-            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; <span id="year"></span> Dr. Saurabh Janardan Shigwan. All rights reserved.</p>
+
             </div>
         </div>
-    </footer>
+    </div>
+</section>
+<!-- == END SECTION: RESEARCH == -->
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
 
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+<!-- == SECTION: RESEARCH GROUP (PhD + B.Tech students) == -->
+<section id="group" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Research Group</h2>
 
-        // Publication filtering
-        document.getElementById('all-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
+        <p class="text-lg text-gray-700 max-w-3xl mb-10 leading-relaxed">
+            My students are central to the group's work. Below are the doctoral and undergraduate researchers
+            I supervise or have supervised, along with the peer-reviewed publications their research has
+            produced. I am actively looking for new students, see the note at the end of this section.
+        </p>
+
+        <!-- == CURRENT PhD STUDENTS == -->
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Current Ph.D. Students</h3>
+        <!--
+          TEMPLATE — copy this block to add a Ph.D. student:
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h4 class="text-xl font-semibold text-gray-800">STUDENT NAME</h4>
+            <p class="text-sm text-blue-600 font-medium mb-2">Ph.D. · Since YEAR · SUPERVISION</p>
+            <p class="text-gray-600">RESEARCH TOPIC.</p>
+          </div>
+        -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-xl font-semibold text-gray-800">
+                    <a href="https://scholar.google.com/citations?user=lZ3bfwkAAAAJ&hl=en" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Tejaswi Abburi</a>
+                </h4>
+                <p class="text-sm text-blue-600 font-medium mb-2">Ph.D. &middot; Since 2024 &middot; Co-supervised with Dr. Nitin Kumar</p>
+                <p class="text-gray-600">Unsupervised crossing-fiber detection in multi-shell diffusion MRI using neural networks.</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; ISBI 2026</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-xl font-semibold text-gray-800">Vishal Chaudhari</h4>
+                <p class="text-sm text-blue-600 font-medium mb-2">Ph.D. &middot; Since 2024 &middot; Sole supervisor</p>
+                <p class="text-gray-600">Applications of open-set recognition in medical imaging.</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-xl font-semibold text-gray-800">Diksha Dhillon</h4>
+                <p class="text-sm text-blue-600 font-medium mb-2">Ph.D. &middot; Since 2025 &middot; Co-supervised with Dr. Sumit Shekhar</p>
+                <p class="text-gray-600">3D reconstruction from noise-prone video sequences.</p>
+            </div>
+
+        </div>
+
+        <!-- == PhD GRADUATED == -->
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Ph.D. Graduated</h3>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm mb-12">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div>
+                    <h4 class="text-xl font-semibold text-gray-800">
+                        <a href="https://scholar.google.com/citations?user=lZ3bfwkAAAAJ&hl=en" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Abhishek Tiwari</a>
+                    </h4>
+                    <p class="text-sm text-blue-600 font-medium mb-2">Ph.D. &middot; 2021 &ndash; 2024 &middot; Co-supervised with Dr. Rajeev Kumar Singh</p>
+                    <p class="text-gray-600">
+                        Deep-learning framework for DTI-parameter estimation and analysis from sparse diffusion
+                        MRI. His work produced the group's core diffusion-MRI results, including SwinDTI, clinical
+                        validation studies, and applications to Alzheimer's and frontotemporal-dementia diagnosis.
+                    </p>
+                    <p class="text-gray-700 font-medium mt-3">Selected publications</p>
+                    <ul class="list-disc pl-5 text-gray-600 mt-1 space-y-1">
+                        <li>SwinDTI &mdash; <span class="italic">Neural Computing and Applications</span> (Springer), 2023</li>
+                        <li>Validation of DL for diffusion-MRI quality augmentation &mdash; <span class="italic">NeuroImage: Clinical</span> (Elsevier)</li>
+                        <li>Early diagnosis of Alzheimer's &mdash; ACML 2023; Frontotemporal dementia &mdash; ICCV-W 2023</li>
+                        <li>Tract-specific biomarker discovery for early Alzheimer's &mdash; PReMI 2025</li>
+                    </ul>
+                </div>
+                <div class="shrink-0">
+                    <a href="PhD_Thesis_Abhishek.pdf" target="_blank" class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium no-underline">
+                        <i class="fas fa-file-pdf mr-1"></i> Ph.D. Thesis
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- == UNDERGRADUATE (B.Tech) RESEARCHERS == -->
+        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Undergraduate (B.Tech.) Researchers</h3>
+        <p class="text-gray-600 max-w-3xl mb-6">
+            Undergraduate research in the group regularly leads to peer-reviewed publications at venues such as
+            WACV, BMVC, ISBI, ACML, CBMS, and ICCV workshops. Students who contributed to published work are
+            marked <span class="font-medium text-blue-600">Published</span>.
+        </p>
+        <!--
+          TEMPLATE — copy this block to add a B.Tech. researcher:
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <h4 class="text-lg font-semibold text-gray-800">STUDENT NAME</h4>
+            <p class="text-sm text-gray-500 mb-2">B.Tech. · YEAR</p>
+            <p class="text-gray-600">PROJECT / CONTRIBUTION.</p>
+            <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published · VENUE</span>
+          </div>
+        -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Apaar Raina</h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2026</p>
+                <p class="text-gray-600">Sparse-view CT reconstruction.</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">K. Nithurshen</h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2026</p>
+                <p class="text-gray-600">Computationally efficient segmentation (SpineContextResUNet).</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; CBMS 2026</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Arnav Aditya</h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2026</p>
+                <p class="text-gray-600">Open-set recognition in computer vision (UCDSC).</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; WACV 2026</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://github.com/mudit-adityaja" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Mudit Adityaja</a>
+                </h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2025</p>
+                <p class="text-gray-600">Unsupervised medical image segmentation (UnSegMedGAT, UnSeGArmaNet).</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; ISBI 2025, BMVC 2024</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://github.com/ksgr5566" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Kovvuri Sai Gopal Reddy</a>
+                </h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2024</p>
+                <p class="text-gray-600">Image segmentation using graph neural networks (UnSeGArmaNet).</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; BMVC 2024</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://www.saranbluri.com/" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Bodduluri Saran</a>
+                </h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2024</p>
+                <p class="text-gray-600">Image segmentation using graph neural networks (UnSeGArmaNet).</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; BMVC 2024</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://reachananya-github-io.vercel.app/" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Ananya Singhal</a>
+                </h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2023</p>
+                <p class="text-gray-600">DTI-parameter estimation from sparse diffusion-MRI measurements.</p>
+                <span class="inline-block mt-3 text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">Published &middot; ISBI 2026, ACML 2023, ICCV-W 2023</span>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Siddharth Reddy</h4>
+                <p class="text-sm text-gray-500 mb-2">B.Tech. &middot; 2023</p>
+                <p class="text-gray-600">Sparse-view CT reconstruction.</p>
+            </div>
+
+        </div>
+
+        <!-- Recruiting note -->
+        <div class="mt-12 bg-blue-600 text-white rounded-lg p-8">
+            <h3 class="text-2xl font-semibold mb-3">Interested in joining the group?</h3>
+            <p class="text-blue-50 max-w-3xl leading-relaxed">
+                I supervise Ph.D., M.Tech., and B.Tech. research in medical image analysis, deep learning, and
+                computer vision. A strong background in machine learning, linear algebra, and Python is helpful.
+                If our work interests you, email me a short note about your background and interests along with
+                your CV.
+            </p>
+            <a href="#contact" class="inline-block mt-5 bg-white text-blue-600 px-6 py-3 rounded-lg font-medium no-underline hover:bg-blue-50">
+                Get in touch
+            </a>
+        </div>
+    </div>
+</section>
+<!-- == END SECTION: RESEARCH GROUP == -->
+
+
+<!-- == SECTION: PUBLICATIONS == -->
+<section id="publications" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Publications</h2>
+
+        <div class="mt-8">
+            <!-- Filter buttons. The list filters by the class on each card: "journal", "conference", or "preprint". -->
+            <div class="flex flex-wrap gap-3 mb-6">
+                <button class="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium" id="all-pubs">All</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="journal-pubs">Journal Articles</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="conference-pubs">Conference Papers</button>
+                <button class="px-4 py-2 bg-white text-gray-700 rounded-lg font-medium hover:bg-gray-100" id="preprint-pubs">Preprints</button>
+            </div>
+
+            <!--
+              PUBLICATION LIST
+              TEMPLATE — copy this block to add a publication.
+              IMPORTANT: set the last class to "journal", "conference", OR "preprint" so the filter works.
+              Put the real DOI/arXiv address inside href="...". Delete the link line if there is none.
+
+              <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 journal">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-800">PAPER TITLE</h3>
+                    <p class="text-gray-600 mt-1">AUTHORS, VENUE, YEAR</p>
+                  </div>
+                  <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                    <a href="ADDRESS" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                  </div>
+                </div>
+              </div>
+            -->
+            <div class="space-y-6" id="publications-list">
+
+                <!-- == JOURNAL ARTICLES == -->
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 journal">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">SwinDTI: Swin Transformer-based Generalized Fast Estimation of Diffusion Tensor Parameters from Sparse Data</h3>
+                            <p class="text-gray-600 mt-1">A. Tiwari, R. K. Singh, S. J. Shigwan. <span class="italic">Neural Computing and Applications</span>, Springer, 2023.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://doi.org/10.1007/s00521-023-09206-4" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 journal">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Validation of Deep Learning Techniques for Quality Augmentation in Diffusion MRI for Clinical Studies</h3>
+                            <p class="text-gray-600 mt-1">A. Tiwari, S. J. Shigwan, R. K. Singh, et al. <span class="italic">NeuroImage: Clinical</span>, Elsevier, 2023 (Q1, Impact Factor 4.2).</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://doi.org/10.1016/j.nicl.2023.103483" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- == CONFERENCE PAPERS == -->
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">ARMARRecon: An ARMA Convolutional Filter-based Graph Neural Network for Neurodegenerative Dementias Classification</h3>
+                            <p class="text-gray-600 mt-1">V. T. Abburi, A. Singhal, S. J. Shigwan, N. Kumar. 23rd IEEE International Symposium on Biomedical Imaging (ISBI), 2026.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://arxiv.org/abs/2601.12067" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-file-lines"></i> arXiv</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">UCDSC: Open-Set Uncertainty-Aware Deep Simplex Classifier for Medical Image Datasets</h3>
+                            <p class="text-gray-600 mt-1">A. Aditya, N. Kumar, S. J. Shigwan. IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://arxiv.org/abs/2511.08196" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-file-lines"></i> arXiv</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">SpineContextResUNet: A Computationally Efficient Residual UNet for Spine CT Segmentation</h3>
+                            <p class="text-gray-600 mt-1">K. Nithurshen, S. J. Shigwan. IEEE International Symposium on Computer-Based Medical Systems (CBMS), Limassol, Cyprus, 2026.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://arxiv.org/pdf/2605.20760" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-file-lines"></i> arXiv</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">UnSegMedGAT: Unsupervised Medical Image Segmentation using Graph Attention Networks Clustering</h3>
+                            <p class="text-gray-600 mt-1">A. M. Adityaja, S. J. Shigwan, N. Kumar. 22nd IEEE International Symposium on Biomedical Imaging (ISBI), 2025.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://doi.org/10.1109/ISBI60581.2025.10980693" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Tract-Specific Biomarker Discovery for Early Alzheimer's Disease using Sparse Diffusion MRI and an AI Framework</h3>
+                            <p class="text-gray-600 mt-1">A. Tiwari, S. J. Shigwan. International Conference on Pattern Recognition and Machine Intelligence (PReMI), Delhi, India, 2025, pp. 369&ndash;379.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://doi.org/10.1007/978-3-032-18480-1_38" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Multi-Feature Graph Convolution Network for Hindi OCR Verification</h3>
+                            <p class="text-gray-600 mt-1">S. Dubey, S. K. Behera, K. Mittal, M. Ravikiran, N. Kumar, S. J. Shigwan, R. Saluja. Workshop on Benchmarks, Harmonization, Annotation, and Standardization for Human-Centric AI in Indian Languages (BHASHA), 2025.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://doi.org/10.18653/v1/2025.bhasha-1.1" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">UnSeGArmaNet: Unsupervised Image Segmentation using Graph Neural Networks with Convolutional ARMA Filters</h3>
+                            <p class="text-gray-600 mt-1">K. S. G. Reddy, B. Saran, A. M. Adityaja, S. J. Shigwan, N. Kumar, S. Mukharjee. 35th British Machine Vision Conference (BMVC), 2024.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://arxiv.org/abs/2410.06114" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-file-lines"></i> arXiv</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Early Diagnosis of Alzheimer through Swin-Transformer-Based Deep Learning Framework using Sparse Diffusion Measures</h3>
+                            <p class="text-gray-600 mt-1">A. Tiwari, A. Singhal, S. J. Shigwan, R. K. Singh. 15th Asian Conference on Machine Learning (ACML), 2023.</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                            <a href="https://proceedings.mlr.press/v222/tiwari24a.html" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> Paper</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Older papers appear when "View All Publications" is clicked. -->
+                <div id="more-publications" class="space-y-6 hidden">
+
+                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Deep Learning Framework using Sparse Diffusion MRI for Diagnosis of Frontotemporal Dementia</h3>
+                                <p class="text-gray-600 mt-1">A. Tiwari, A. Singhal, S. J. Shigwan, R. K. Singh. IEEE/CVF ICCV, BioImage Computing Workshop, 2023.</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                                <a href="https://doi.org/10.1109/ICCVW60793.2023.00413" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Object Segmentation With Deep Neural Nets Coupled with a Shape Prior, When Learning from a Training Set of Limited Quality and Small Size</h3>
+                                <p class="text-gray-600 mt-1">S. J. Shigwan, A. Gailkwad, S. P. Awate. International Symposium on Biomedical Imaging (ISBI), Iowa City, USA, 2020.</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                                <a href="https://doi.org/10.1109/ISBI45749.2020.9098496" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Hierarchical Generative Modeling and Monte-Carlo EM in Riemannian Shape Space for Hypothesis Testing</h3>
+                                <p class="text-gray-600 mt-1">S. J. Shigwan, S. P. Awate. Medical Image Computing and Computer Assisted Intervention (MICCAI), Athens, Greece, 2016.</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                                <a href="https://doi.org/10.1007/978-3-319-46726-9_23" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 conference">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">A Statistical Model for Smooth Shapes in Kendall Shape Space</h3>
+                                <p class="text-gray-600 mt-1">A. Gailkwad, S. J. Shigwan, S. P. Awate. Medical Image Computing and Computer Assisted Intervention (MICCAI), Munich, Germany, 2015.</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                                <a href="https://doi.org/10.1007/978-3-319-24574-4_75" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-link"></i> DOI</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- == PREPRINTS == -->
+                    <div class="publication-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 preprint">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">UnSegGNN: Unsupervised Image Segmentation using Graph Neural Networks</h3>
+                                <p class="text-gray-600 mt-1">K. S. G. Reddy, B. Saran, A. M. Adityaja, S. J. Shigwan, N. Kumar. arXiv preprint arXiv:2405.06057, 2024.</p>
+                            </div>
+                            <div class="mt-4 md:mt-0 flex space-x-4 shrink-0">
+                                <a href="https://arxiv.org/pdf/2405.06057" target="_blank" class="text-blue-600 hover:text-blue-800 no-underline"><i class="fas fa-file-lines"></i> arXiv</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /more-publications -->
+
+            </div><!-- /publications-list -->
+
+            <div class="mt-8 text-center">
+                <a href="#" id="view-all-btn" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 no-underline">
+                    View All Publications
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- == END SECTION: PUBLICATIONS == -->
+
+
+<!-- == SECTION: COLLABORATIONS == -->
+<section id="collaborations" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Collaborations</h2>
+        <p class="text-lg text-gray-700 max-w-3xl mb-10 leading-relaxed">
+            Our research is carried out with collaborators at Shiv Nadar Institute of Eminence and partner
+            institutions in India and abroad.
+        </p>
+
+        <!-- Institutional / external partners -->
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Institutional Partners</h3>
+        <!--
+          TEMPLATE — copy this block to add an institutional partner:
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <div class="text-blue-600 mb-3"><i class="fas fa-university text-3xl"></i></div>
+            <h4 class="text-lg font-semibold text-gray-800">INSTITUTION</h4>
+            <p class="text-gray-600 mt-1">AREA OF COLLABORATION.</p>
+          </div>
+        -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="text-blue-600 mb-3"><i class="fas fa-university text-3xl"></i></div>
+                <h4 class="text-lg font-semibold text-gray-800">Harvard Medical School</h4>
+                <p class="text-gray-600 mt-1">Psychiatry Neuroimaging Laboratory &mdash; diffusion-MRI reconstruction and tractography.</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="text-blue-600 mb-3"><i class="fas fa-hospital text-3xl"></i></div>
+                <h4 class="text-lg font-semibold text-gray-800">Brigham and Women's Hospital</h4>
+                <p class="text-gray-600 mt-1">Boston, USA &mdash; brain tractography using diffusion MRI (pre-doctoral fellowship).</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="text-blue-600 mb-3"><i class="fas fa-university text-3xl"></i></div>
+                <h4 class="text-lg font-semibold text-gray-800">IIT Bombay</h4>
+                <p class="text-gray-600 mt-1">Statistical shape analysis and Riemannian modelling (doctoral collaboration).</p>
+            </div>
+
+        </div>
+
+        <!-- Academic collaborators -->
+        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Academic Collaborators</h3>
+        <!--
+          TEMPLATE — copy this block to add a collaborator (remove the <a> if there is no profile link):
+          <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+            <h4 class="text-lg font-semibold text-gray-800">NAME</h4>
+            <p class="text-sm text-gray-500">INSTITUTION</p>
+            <p class="text-gray-600 mt-2">TOPICS.</p>
+          </div>
+        -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Prof. Suyash P. Awate</h4>
+                <p class="text-sm text-gray-500">IIT Bombay</p>
+                <p class="text-gray-600 mt-2">Statistical shape analysis, Riemannian modelling (doctoral advisor).</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Prof. Yogesh Rathi</h4>
+                <p class="text-sm text-gray-500">Brigham and Women's Hospital / Harvard Medical School</p>
+                <p class="text-gray-600 mt-2">Brain tractography from diffusion MRI.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Prof. Sylvain Bouix</h4>
+                <p class="text-sm text-gray-500">Psychiatry Neuroimaging Laboratory, Harvard Medical School</p>
+                <p class="text-gray-600 mt-2">Neuroimaging and shape analysis.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://scholar.google.com/citations?user=Kb4ah6oAAAAJ&hl=en" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Dr. Rajeev Kumar Singh</a>
+                </h4>
+                <p class="text-sm text-gray-500">Shiv Nadar IoE</p>
+                <p class="text-gray-600 mt-2">Sparse diffusion MRI, DTI estimation, clinical validation.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://nitinnazkani.github.io/nitinnazkani/" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Dr. Nitin Kumar</a>
+                </h4>
+                <p class="text-sm text-gray-500">Shiv Nadar IoE</p>
+                <p class="text-gray-600 mt-2">Graph neural networks, unsupervised segmentation, open-set recognition.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Dr. Sumit Shekhar</h4>
+                <p class="text-sm text-gray-500">Shiv Nadar IoE</p>
+                <p class="text-gray-600 mt-2">CT/sinogram reconstruction, 3D reconstruction, image restoration.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">
+                    <a href="https://scholar.google.com/citations?user=2nMgticAAAAJ&hl=en" target="_blank" class="text-gray-800 no-underline hover:text-blue-600">Dr. Snehasis Mukharjee</a>
+                </h4>
+                <p class="text-sm text-gray-500">Shiv Nadar IoE</p>
+                <p class="text-gray-600 mt-2">Computer vision, image segmentation.</p>
+            </div>
+
+            <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+                <h4 class="text-lg font-semibold text-gray-800">Dr. R. Saluja</h4>
+                <p class="text-sm text-gray-500">Co-author, BHASHA 2025</p>
+                <p class="text-gray-600 mt-2">Document analysis and OCR for Indian languages.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- == END SECTION: COLLABORATIONS == -->
+
+
+<!-- == SECTION: TEACHING (courses taught + advising) == -->
+<section id="teaching" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Teaching</h2>
+
+        <!-- COURSES TAUGHT — full list. Copy a row (tr) to add a course. -->
+        <div class="mt-8">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Courses Taught</h3>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-sm">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-gray-200 text-gray-700">
+                            <th class="px-6 py-4 font-semibold">Course</th>
+                            <th class="px-6 py-4 font-semibold">Level</th>
+                            <th class="px-6 py-4 font-semibold">Years</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <!--
+                          TEMPLATE — copy this row to add a course:
+                          <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-gray-800">COURSE NAME</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">YEARS</td>
+                          </tr>
+                        -->
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-gray-800">Advanced Computer Vision</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">2026 &ndash; present</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-gray-800">Data Structures and Algorithms</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">2025 &ndash; present</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-gray-800">Introduction to Deep Learning</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">2024 &ndash; 2025</td>
+                        </tr>
+                        <tr class="border-b border-gray-100">
+                            <td class="px-6 py-4 font-medium text-gray-800">Digital Image Processing</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">2022 &ndash; 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium text-gray-800">Introduction to Probability and Statistics</td>
+                            <td class="px-6 py-4">Undergraduate</td>
+                            <td class="px-6 py-4">2021 &ndash; 2023</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- STUDENT ADVISING SUMMARY (full detail lives in the Research Group section) -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Student Advising</h3>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="text-xl font-medium text-gray-800">Current Ph.D. Students</h4>
+                <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                    <li>Tejaswi Abburi (since 2024, co-supervised) &mdash; unsupervised crossing-fiber detection in multi-shell diffusion MRI.</li>
+                    <li>Vishal Chaudhari (since 2024) &mdash; applications of open-set recognition in medical imaging.</li>
+                    <li>Diksha Dhillon (since 2025, co-supervised) &mdash; 3D reconstruction from noise-prone video sequences.</li>
+                </ul>
+
+                <h4 class="text-xl font-medium text-gray-800 mt-6">Ph.D. Graduated</h4>
+                <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                    <li>Abhishek Tiwari (2024, co-supervised) &mdash; deep-learning framework for DTI-parameter estimation from sparse diffusion MRI.</li>
+                </ul>
+
+                <p class="text-gray-600 mt-6">
+                    Full profiles, undergraduate researchers, and published work are listed in the
+                    <a href="#group" class="text-blue-600 no-underline hover:underline">Research Group</a> section.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- == END SECTION: TEACHING == -->
+
+
+<!-- == SECTION: CONTACT == -->
+<section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-800 section-title">Contact</h2>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-12">
+            <!-- Contact details -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get in Touch</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="text-blue-600 mr-4 mt-1"><i class="fas fa-university text-2xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Office</h4>
+                            <p class="text-gray-600 mt-1">
+                                Room C219F, C-Block<br>
+                                Department of Computer Science &amp; Engineering<br>
+                                Shiv Nadar Institute of Eminence (Deemed to be University)<br>
+                                NH91, Tehsil Dadri<br>
+                                Gautam Buddha Nagar, UP&#8209;201314, India
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="text-blue-600 mr-4 mt-1"><i class="fas fa-envelope text-2xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                            <p class="text-gray-600 mt-1">
+                                <a href="mailto:saurabh.shigwan@snu.edu.in" class="no-underline hover:text-blue-600">saurabh.shigwan@snu.edu.in</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="text-blue-600 mr-4 mt-1"><i class="fas fa-clock text-2xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800">Office Hours</h4>
+                            <p class="text-gray-600 mt-1">
+                                Monday, 3:00 PM &ndash; 5:00 PM<br>
+                                Wednesday, 3:00 PM &ndash; 5:00 PM<br>
+                                Or by appointment
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h4 class="text-lg font-medium text-gray-800 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/saurabhshigwan/" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300 no-underline" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/saurabhcsesnu" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300 no-underline" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" target="_blank" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300 no-underline" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://www.researchgate.net/profile/Saurabh-Shigwan" target="_blank" class="bg-teal-700 text-white p-3 rounded-full hover:bg-teal-800 transition duration-300 no-underline" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://orcid.org/0000-0001-6159-7961" target="_blank" class="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition duration-300 no-underline" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recruiting note (replaces the old message form) -->
+            <div>
+                <div class="bg-gray-50 border border-gray-100 rounded-lg shadow-sm p-8 h-full flex flex-col justify-center">
+                    <div class="text-blue-600 mb-4"><i class="fas fa-user-graduate text-4xl"></i></div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Interested in joining the group?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        I am looking for motivated Ph.D., M.Tech., and B.Tech. students to work on medical image
+                        analysis, deep learning, and computer vision. A solid grounding in machine learning,
+                        linear algebra, and Python is helpful.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mt-3">
+                        Email me a brief note about your background and research interests, along with your CV,
+                        and mention a paper or project of ours that caught your attention.
+                    </p>
+                    <a href="mailto:saurabh.shigwan@snu.edu.in?subject=Prospective%20research%20student" class="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 no-underline text-center">
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- == END SECTION: CONTACT == -->
+
+
+<!-- == SECTION: FOOTER == -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Dr. Saurabh Shigwan</h3>
+                <p class="text-gray-400">
+                    Assistant Professor<br>
+                    Department of Computer Science &amp; Engineering<br>
+                    Shiv Nadar Institute of Eminence (Deemed to be University)
+                </p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300 no-underline">About</a></li>
+                    <li><a href="#research" class="text-gray-400 hover:text-white transition duration-300 no-underline">Research</a></li>
+                    <li><a href="#group" class="text-gray-400 hover:text-white transition duration-300 no-underline">Research Group</a></li>
+                    <li><a href="#publications" class="text-gray-400 hover:text-white transition duration-300 no-underline">Publications</a></li>
+                    <li><a href="#collaborations" class="text-gray-400 hover:text-white transition duration-300 no-underline">Collaborations</a></li>
+                    <li><a href="#teaching" class="text-gray-400 hover:text-white transition duration-300 no-underline">Teaching</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300 no-underline">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">University Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://snu.edu.in/departments/department-of-computer-science-and-engineering/" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">Department Website</a></li>
+                    <li><a href="https://snu.edu.in/home/" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">University Homepage</a></li>
+                    <li><a href="https://snu.edu.in/faculty/" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">Faculty Directory</a></li>
+                    <li><a href="https://snu.edu.in/home/mandatory-disclosure/academic-calendar-all/" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Research Profiles</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=j2Agh7EAAAAJ" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">Google Scholar</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Saurabh-Shigwan" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">ResearchGate</a></li>
+                    <li><a href="https://orcid.org/0000-0001-6159-7961" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">ORCID</a></li>
+                    <li><a href="https://dblp.org/pid/168/5573.html" target="_blank" class="text-gray-400 hover:text-white transition duration-300 no-underline">DBLP</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; <span id="year"></span> Dr. Saurabh Janardan Shigwan. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- == END SECTION: FOOTER == -->
+
+
+<!-- == SCRIPTS (interactive behaviour, you normally won't need to edit this) == -->
+<script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Publication filtering (All / Journal / Conference / Preprint)
+    function filterPublications(type, activeButton) {
+        document.querySelectorAll('.publication-card').forEach(function (card) {
+            if (type === 'all' || card.classList.contains(type)) {
                 card.classList.remove('hidden');
-            });
-            updateActiveButton(this);
+            } else {
+                card.classList.add('hidden');
+            }
         });
+        // Reveal older papers so filtered results are complete
+        var more = document.getElementById('more-publications');
+        if (more) more.classList.remove('hidden');
+        var viewAll = document.getElementById('view-all-btn');
+        if (viewAll) viewAll.classList.add('hidden');
+        updateActiveButton(activeButton);
+    }
 
-        document.getElementById('journal-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('journal')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
+    document.getElementById('all-pubs').addEventListener('click', function () { filterPublications('all', this); });
+    document.getElementById('journal-pubs').addEventListener('click', function () { filterPublications('journal', this); });
+    document.getElementById('conference-pubs').addEventListener('click', function () { filterPublications('conference', this); });
+    document.getElementById('preprint-pubs').addEventListener('click', function () { filterPublications('preprint', this); });
+
+    function updateActiveButton(activeButton) {
+        document.querySelectorAll('#publications button').forEach(function (btn) {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
         });
+        activeButton.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100');
+        activeButton.classList.add('bg-blue-600', 'text-white');
+    }
 
-        document.getElementById('conference-pubs').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('conference')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
-        });
-
-        document.getElementById('book-chapters').addEventListener('click', function() {
-            document.querySelectorAll('.publication-card').forEach(card => {
-                if (card.classList.contains('book-chapter')) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-            updateActiveButton(this);
-        });
-
-        function updateActiveButton(activeButton) {
-            document.querySelectorAll('#publications button').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-gray-100');
-            });
-            activeButton.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-100');
-            activeButton.classList.add('bg-blue-600', 'text-white');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+    // "View All Publications" reveals the older papers
+    document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('view-all-btn');
+        var more = document.getElementById('more-publications');
+        if (btn && more) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
+                more.classList.remove('hidden');
+                btn.classList.add('hidden');
             });
+        }
+    });
+
+    // Smooth scrolling for in-page navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            var targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
+                var mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
         });
+    });
 
-        // Update active nav link based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-                    currentSection = '#' + section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
-                }
-            });
+    // Highlight the current section in the navigation while scrolling
+    window.addEventListener('scroll', function () {
+        var sections = document.querySelectorAll('section');
+        var navLinks = document.querySelectorAll('.nav-link');
+        var currentSection = '';
+        sections.forEach(function (section) {
+            var sectionTop = section.offsetTop;
+            var sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                currentSection = '#' + section.getAttribute('id');
+            }
         });
-    </script>
+        navLinks.forEach(function (link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
